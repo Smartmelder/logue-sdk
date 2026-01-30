@@ -5,10 +5,13 @@
     Total memory: ~24KB (safe for modfx)
 */
 
-#include "unit_modfx.h"
+#include "unit_revfx.h"
 #include "osc_api.h"
 #include "fx_api.h"
 #include "utils/float_math.h"
+
+// SDRAM section attribute for large buffers
+#define __sdram __attribute__((section(".sdram")))
 
 // ========== ULTRA-COMPACT DELAY SIZES (Total: ~12KB) ==========
 
@@ -28,12 +31,12 @@
 #define TANK_R3_SIZE 347
 #define TANK_R4_SIZE 233
 
-// ========== BUFFERS ==========
+// ========== BUFFERS (IN SDRAM) ==========
 
-static float s_pre[PREDELAY_SIZE];
-static float s_d1[DIFF1_SIZE], s_d2[DIFF2_SIZE], s_d3[DIFF3_SIZE], s_d4[DIFF4_SIZE];
-static float s_tl1[TANK_L1_SIZE], s_tl2[TANK_L2_SIZE], s_tl3[TANK_L3_SIZE], s_tl4[TANK_L4_SIZE];
-static float s_tr1[TANK_R1_SIZE], s_tr2[TANK_R2_SIZE], s_tr3[TANK_R3_SIZE], s_tr4[TANK_R4_SIZE];
+static float s_pre[PREDELAY_SIZE] __sdram;
+static float s_d1[DIFF1_SIZE] __sdram, s_d2[DIFF2_SIZE] __sdram, s_d3[DIFF3_SIZE] __sdram, s_d4[DIFF4_SIZE] __sdram;
+static float s_tl1[TANK_L1_SIZE] __sdram, s_tl2[TANK_L2_SIZE] __sdram, s_tl3[TANK_L3_SIZE] __sdram, s_tl4[TANK_L4_SIZE] __sdram;
+static float s_tr1[TANK_R1_SIZE] __sdram, s_tr2[TANK_R2_SIZE] __sdram, s_tr3[TANK_R3_SIZE] __sdram, s_tr4[TANK_R4_SIZE] __sdram;
 
 static uint32_t s_pw = 0, s_d1w = 0, s_d2w = 0, s_d3w = 0, s_d4w = 0;
 static uint32_t s_tl1w = 0, s_tl2w = 0, s_tl3w = 0, s_tl4w = 0;

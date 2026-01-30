@@ -367,16 +367,16 @@ __unit_callback int8_t unit_init(const unit_runtime_desc_t *desc) {
     s_tank.init(s_reverb_buffer, offset);
     
     // Init parameters (60% time, 30% depth, 50% mix)
-    s_time = 0.6f;
-    s_depth = 0.3f;
-    s_mix = 0.5f;
-    s_size = 0.7f;
-    s_damping = 1.0f;  // FIXED: Start met maximale damping
-    s_diffusion = 0.6f;
-    s_predelay_time = 0.2f;
-    s_early_level = 0.3f;
-    s_mod_rate = 0.15f;
-    s_width = 0.7f;
+    s_time = 0.f;
+    s_depth = 0.f;
+    s_mix = -1.f;
+    s_size = 0.f;
+    s_damping = 0.f;  // FIXED: Start met maximale damping
+    s_diffusion = 0.f;
+    s_predelay_time = 0.f;
+    s_early_level = 0.f;
+    s_mod_rate = 0.f;
+    s_width = 0.f;
     
     return k_unit_err_none;
 }
@@ -480,17 +480,19 @@ __unit_callback void unit_render(const float *in, float *out, uint32_t frames) {
 }
 
 __unit_callback void unit_set_param_value(uint8_t id, int32_t value) {
-    value = clipminmaxi32(unit_header.params[id].min, value, unit_header.params[id].max);
     const float valf = param_val_to_f32(value);
-    
+    value = clipminmaxi32(unit_header.params[id].min, value, unit_header.params[id].max);
     switch (id) {
         case 0: s_time = clipminmaxf(0.f, valf, 1.f); break;
         case 1: s_depth = clipminmaxf(0.f, valf, 1.f); break;
         case 2: s_mix = clipminmaxf(-1.f, (float)value / 100.f, 1.f); break;
         case 3: s_size = clipminmaxf(0.f, valf, 1.f); break;
         case 4: {
+            // Limit to 350 max to prevent noise
+            value = clipminmaxi32(0, value, 350);
+            const float valf_damp = param_val_to_f32(value);
             // INVERTED DAMP: 0 = min damp (max galm), 1 = max damp (min galm)
-            float inverted_damp = 1.f - valf;
+            float inverted_damp = 1.f - valf_damp;
             s_damping = clipminmaxf(0.002f, inverted_damp, 0.998f);
             break;
         }

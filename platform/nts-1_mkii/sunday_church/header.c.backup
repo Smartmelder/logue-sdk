@@ -22,7 +22,7 @@ const __unit_header unit_header_t unit_header = {
     .params = {
         // Knob A: Reverb Time
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 614,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"TIME"}
@@ -30,7 +30,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Knob B: Modulation Depth
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 307,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"DEPTH"}
@@ -38,7 +38,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 0: Dry/Wet Mix
         {
-            .min = -100, .max = 100, .center = 0, .init = -100,
+            .min = -100, .max = 100, .center = 0, .init = 50,
             .type = k_unit_param_type_drywet,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"MIX"}
@@ -46,7 +46,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 1: Room Size
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 717,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"SIZE"}
@@ -57,7 +57,7 @@ const __unit_header unit_header_t unit_header = {
         // 998 = maximale damping (min galm) 
         // 1023 = default (max damping bij opstarten)
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 1023,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"DAMP"}
@@ -65,7 +65,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 3: Diffusion
         {
-            .min = 0, .max = 350, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 614,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"DIFFUSE"}
@@ -73,7 +73,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 4: Pre-Delay
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 205,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"PREDLY"}
@@ -81,7 +81,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 5: Early Reflections
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 307,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"EARLY"}
@@ -89,7 +89,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 6: Modulation Rate
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 154,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"MODRATE"}
@@ -97,7 +97,7 @@ const __unit_header unit_header_t unit_header = {
         
         // Param 7: Stereo Width
         {
-            .min = 0, .max = 1023, .center = 0, .init = 0,
+            .min = 0, .max = 1023, .center = 0, .init = 717,
             .type = k_unit_param_type_percent,
             .frac = 0, .frac_mode = 0, .reserved = 0,
             .name = {"WIDTH"}

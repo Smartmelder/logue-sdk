@@ -1,0 +1,24 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 48,
+        "version": "1.0-0",
+        "name": "ORCH PIZZ",
+        "num_param": 10,
+        "params": [
+            ["Decay", 0, 100, "%"],
+            ["Spread", 0, 100, "%"],
+            ["Chord", 0, 100, "%"],
+            ["Cutoff", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Bit Depth", 0, 100, "%"],
+            ["Sample Rate", 0, 100, "%"],
+            ["Stereo Width", 0, 100, "%"],
+            ["Velocity Sens", 0, 100, "%"],
+            ["Filter Mode", 0, 2, ""]
+        ]
+    }
+}

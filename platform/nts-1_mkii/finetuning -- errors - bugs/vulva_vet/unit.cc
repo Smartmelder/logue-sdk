@@ -5,7 +5,7 @@
     Total memory: ~24KB (safe for modfx)
 */
 
-#include "unit_modfx.h"
+#include "unit_revfx.h"
 #include "osc_api.h"
 #include "fx_api.h"
 #include "utils/float_math.h"

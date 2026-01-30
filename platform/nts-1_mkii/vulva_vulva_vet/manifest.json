@@ -1,7 +1,7 @@
 {
     "header": {
         "platform": "nts1mkii",
-        "module": "modfx",
+        "module": "revfx",
         "api": "2.0-0",
         "dev_id": 0,
         "prg_id": 11,
@@ -9,10 +9,9 @@
         "name": "VULVA_VULVA_VET",
         "num_param": 3,
         "params": [
-            ["Tone", 0, 100, "%"],
-            ["PreDly", 0, 100, "%"],
+            ["Time", 0, 100, "%"],
+            ["Damp", 0, 100, "%"],
             ["Mix", 0, 100, "%"]
         ]
     }
 }
-

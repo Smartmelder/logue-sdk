@@ -3,7 +3,7 @@
 #
 
 PROJECT := vulva_vulva_vet
-PROJECT_TYPE := modfx
+PROJECT_TYPE := revfx
 
 ##############################################################################
 # Sources

@@ -1,0 +1,353 @@
+═══════════════════════════════════════════════════════════════════════════
+M1 PIANO - SAMPLE-BASED OSCILLATOR FOR KORG NTS-1 MKII
+═══════════════════════════════════════════════════════════════════════════
+
+Een professionele M1-style piano oscillator met attack/loop samples geëxtraheerd
+uit een origineel WAV bestand. Gebruikt de klassieke Korg M1 methode: separate
+attack sample (45ms) + looping cycle voor sustain.
+
+═══════════════════════════════════════════════════════════════════════════
+BELANGRIJKSTE KENMERKEN
+═══════════════════════════════════════════════════════════════════════════
+
+✓ M1-METHODE - Attack + Loop samples (zoals originele Korg M1)
+✓ NATUURLIJK GELUID - Geëxtraheerd uit echte piano WAV
+✓ 10 M1-STYLE PARAMETERS - Volledige controle over het geluid
+✓ VELOCITY SENSITIVE - Responds to MIDI velocity
+✓ VIBRATO LFO - Instelbare diepte en snelheid
+✓ FILTER - Brightness en resonance control
+✓ FULL ADSR - Attack, Decay, Sustain, Release
+✓ STEREO WIDTH - Voor breder geluid
+✓ DETUNE - Fine tuning (-100 tot +100 cents)
+
+═══════════════════════════════════════════════════════════════════════════
+10 M1-STYLE PARAMETERS
+═══════════════════════════════════════════════════════════════════════════
+
+PARAMETER 1: DECAY
+  Functie: Decay time na attack fase
+  Range: 0.1 - 5.0 seconden
+  Default: 40% (1.0 seconde)
+
+  0%:     Korte, staccato piano
+  50%:    Medium decay (klassiek piano)
+  100%:   Lange, sustaining toon
+
+PARAMETER 2: RELEASE
+  Functie: Release time na note off
+  Range: 0.01 - 3.0 seconden
+  Default: 25% (0.5 seconde)
+
+  0%:     Snelle cut-off
+  50%:    Natuurlijke piano release
+  100%:   Lange fade-out
+
+PARAMETER 3: BRIGHTNESS (Filter Cutoff)
+  Functie: Filter cutoff frequentie
+  Range: 0.1 - 1.0 (donker - helder)
+  Default: 80% (bright)
+
+  0-30%:  Dark, muffled piano
+  40-60%: Warm, classic piano
+  70-100%: Bright, sparkly piano
+
+PARAMETER 4: RESONANCE (Filter Q)
+  Functie: Filter resonance/emphasis
+  Range: 0 - 100%
+  Default: 20%
+
+  0%:     Clean filter
+  30%:    Slight emphasis
+  60%+:   Strong resonance (metallic)
+
+PARAMETER 5: VIBRATO DEPTH
+  Functie: Vibrato/pitch modulation diepte
+  Range: 0 - 100%
+  Default: 0% (off)
+
+  0%:     No vibrato
+  10-30%: Subtle vibrato
+  50%+:   Strong vibrato
+
+PARAMETER 6: VIBRATO SPEED
+  Functie: Vibrato LFO snelheid
+  Range: 0.5 - 10 Hz
+  Default: 50% (5 Hz)
+
+  0%:     Slow (0.5 Hz)
+  50%:    Medium (5 Hz)
+  100%:   Fast (10 Hz)
+
+PARAMETER 7: ATTACK TIME
+  Functie: Attack time van envelope
+  Range: 0.001 - 1.0 seconde
+  Default: 1% (instant, 0.001s)
+
+  0-10%:  Instant attack (piano)
+  20-50%: Slow attack (pad-like)
+  70-100%: Very slow attack
+
+PARAMETER 8: SUSTAIN LEVEL
+  Functie: Sustain level van envelope
+  Range: 0 - 100%
+  Default: 70%
+
+  0%:     Pure percussive (no sustain)
+  50%:    Half sustain
+  100%:   Full sustain
+
+PARAMETER 9: STEREO WIDTH
+  Functie: Stereo spread/width
+  Range: 0 - 100%
+  Default: 50%
+
+  0%:     Mono
+  50%:    Natural width
+  100%:   Maximum stereo spread
+
+PARAMETER 10: DETUNE
+  Functie: Fine tuning in cents
+  Range: -100 to +100 cents
+  Default: 0 cents (centered)
+
+  -100:   Een halve toon lager
+  0:      Perfect gestemd
+  +100:   Een halve toon hoger
+
+═══════════════════════════════════════════════════════════════════════════
+VOORBEELDPRESETS
+═══════════════════════════════════════════════════════════════════════════
+
+PRESET 1: CLASSIC M1 PIANO
+  DECAY:      40%  (1.0s)
+  RELEASE:    30%  (0.5s)
+  BRIGHT:     80%
+  RESO:       20%
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%   (instant)
+  SUSTAIN:    70%
+  WIDTH:      50%
+  DETUNE:     50%  (0 cents)
+
+  → De klassieke M1 piano sound
+
+PRESET 2: BRIGHT SPARKLY PIANO
+  DECAY:      30%  (0.7s)
+  RELEASE:    20%  (0.3s)
+  BRIGHT:     95%  ← Extra bright!
+  RESO:       30%  ← Emphasis
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%
+  SUSTAIN:    60%
+  WIDTH:      70%  ← Wide stereo
+  DETUNE:     50%
+
+  → Helder, sparkly piano voor pop/EDM
+
+PRESET 3: DARK MOODY PIANO
+  DECAY:      60%  (2.5s)
+  RELEASE:    50%  (1.0s)
+  BRIGHT:     30%  ← Dark filter
+  RESO:       10%
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%
+  SUSTAIN:    80%
+  WIDTH:      40%
+  DETUNE:     50%
+
+  → Donker, melancholisch, cinematic
+
+PRESET 4: PERCUSSIVE STABS
+  DECAY:      10%  (0.2s) ← Kort!
+  RELEASE:    5%   (0.05s) ← Zeer kort!
+  BRIGHT:     90%
+  RESO:       40%  ← Emphasis
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%
+  SUSTAIN:    20%  ← Laag sustain
+  WIDTH:      60%
+  DETUNE:     50%
+
+  → Voor stabs en percussive hits
+
+PRESET 5: PAD-LIKE PIANO
+  DECAY:      80%  (4.0s)
+  RELEASE:    70%  (2.0s)
+  BRIGHT:     60%
+  RESO:       15%
+  VIBRATO:    20%  ← Subtle vibrato
+  VSPEED:     40%  (4 Hz)
+  ATTACK:     30%  (0.3s) ← Slow attack
+  SUSTAIN:    90%
+  WIDTH:      80%  ← Wide
+  DETUNE:     50%
+
+  → Pad-achtige piano voor ambient/atmosphere
+
+PRESET 6: DETUNED CHARACTER
+  DECAY:      40%
+  RELEASE:    30%
+  BRIGHT:     70%
+  RESO:       25%
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%
+  SUSTAIN:    70%
+  WIDTH:      50%
+  DETUNE:     55%  (+10 cents) ← Licht detuned
+
+  → Karaktervolle, slightly detuned piano
+
+PRESET 7: VIBRATO PIANO
+  DECAY:      40%
+  RELEASE:    30%
+  BRIGHT:     80%
+  RESO:       20%
+  VIBRATO:    25%  ← Vibrato!
+  VSPEED:     50%  (5 Hz)
+  ATTACK:     1%
+  SUSTAIN:    70%
+  WIDTH:      50%
+  DETUNE:     50%
+
+  → Met vibrato voor expressie
+
+PRESET 8: RESONANT METALLIC
+  DECAY:      30%
+  RELEASE:    20%
+  BRIGHT:     85%
+  RESO:       70%  ← Hoge resonance!
+  VIBRATO:    0%
+  VSPEED:     50%
+  ATTACK:     1%
+  SUSTAIN:    50%
+  WIDTH:      60%
+  DETUNE:     50%
+
+  → Metallic, resonant character
+
+═══════════════════════════════════════════════════════════════════════════
+TECHNISCHE DETAILS
+═══════════════════════════════════════════════════════════════════════════
+
+SAMPLE DATA:
+  - Bron: m1-style-piano-shot_C_major.wav (96kHz origineel)
+  - Attack: 2160 samples (45ms @ 48kHz)
+  - Loop: 161 samples (single cycle @ 48kHz)
+  - Base pitch: 298.14 Hz (ongeveer C#4)
+  - Total memory: ~9KB voor samples
+
+SYNTHESIS METHOD:
+  - Attack sample: One-shot playback bij note-on
+  - Loop sample: Infinite loop na attack
+  - Pitch tracking: Automatisch via MIDI note
+  - Interpolation: Linear sample interpolation
+
+ENVELOPE:
+  - 4-stage ADSR (Attack, Decay, Sustain, Release)
+  - Attack: 1ms - 1 second
+  - Decay: 0.1 - 5 seconds
+  - Sustain: 0 - 100%
+  - Release: 10ms - 3 seconds
+
+FILTER:
+  - Type: 1-pole lowpass
+  - Cutoff: 100Hz - 20kHz (via Brightness)
+  - Resonance: 0 - 100% (feedback)
+
+LFO (VIBRATO):
+  - Waveform: Sine wave
+  - Depth: ±2% maximum pitch modulation
+  - Speed: 0.5 - 10 Hz
+
+OUTPUT:
+  - Format: Mono (summed stereo internally)
+  - Stereo width: Adjustable 0-100%
+  - Soft clipping: Voor clean output
+
+CODE SIZE: 16KB (binnen 48KB limiet)
+
+═══════════════════════════════════════════════════════════════════════════
+INSTALLATIE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Download m1_piano_osc.nts1mkiiunit
+2. Open KORG Librarian software
+3. Upload naar NTS-1 MKII oscillator slot
+4. Selecteer de oscillator op de NTS-1 MKII
+5. Enjoy! 🎹
+
+═══════════════════════════════════════════════════════════════════════════
+TIPS & TRICKS
+═══════════════════════════════════════════════════════════════════════════
+
+TIP 1: VELOCITY LAYERING
+  Gebruik MIDI velocity voor expressie - de oscillator reageert op velocity!
+
+TIP 2: FILTER SWEEPS
+  Moduleer de BRIGHTNESS parameter met de NTS-1's LFO voor filter sweeps
+
+TIP 3: PERCUSSIVE HITS
+  Korte DECAY + korte RELEASE = percussive piano stabs
+
+TIP 4: PAD SOUNDS
+  Lange ATTACK + lange DECAY/RELEASE + vibrato = pad-achtige sounds
+
+TIP 5: RESONANCE SWEET SPOT
+  30-40% resonance geeft een mooie "body" aan het piano geluid
+
+TIP 6: STEREO WIDTH
+  60-80% width geeft een professionele, brede piano sound
+
+TIP 7: DETUNE VOOR CHARACTER
+  +5 tot +15 cents detune geeft een karaktervolle, slightly "out of tune" vibe
+
+TIP 8: COMBINE WITH NTS-1 EFFECTS
+  - Reverb: Voor natuurlijke ruimte
+  - Delay: Voor rhythmic patterns
+  - Chorus: Voor extra width (voorzichtig met WIDTH parameter!)
+
+═══════════════════════════════════════════════════════════════════════════
+SAMPLE EXTRACTIE PROCES
+═══════════════════════════════════════════════════════════════════════════
+
+Voor wie geïnteresseerd is in hoe de samples zijn geëxtraheerd:
+
+1. WAV ANALYSE:
+   - 96kHz, mono, 16-bit origineel
+   - 1.1 seconden totale lengte
+
+2. ATTACK EXTRACTIE:
+   - Eerste 45ms van het geluid
+   - Bevat de hammer hit en initial transient
+   - Downsampled naar 48kHz (2160 samples)
+
+3. LOOP EXTRACTIE:
+   - Gezocht naar stabiel deel vanaf 200ms
+   - Single cycle geëxtraheerd via zero-crossing detectie
+   - Best match: 161 samples @ 48kHz
+   - Frequentie: 298.14 Hz (ongeveer C#4)
+
+4. C CODE GENERATIE:
+   - Samples omgezet naar float arrays
+   - Opgeslagen in samples_data.h
+   - Direct in oscillator gecompileerd
+
+TOOLS GEBRUIKT:
+  - extract_samples_simple.py (pure Python, geen dependencies)
+  - Manual frequency verification
+
+═══════════════════════════════════════════════════════════════════════════
+
+Gemaakt door: AI-assisted development
+Build size: 16KB
+Sample data: ~9KB
+Code: ~7KB
+
+Veel speelplezier met je M1-style piano! 🎹
+
+═══════════════════════════════════════════════════════════════════════════

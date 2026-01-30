@@ -1,0 +1,192 @@
+═══════════════════════════════════════════════════════════════════════════
+IS IT ME - MELANCHOLIC REVERB FOR KORG NTS-1 MKII
+═══════════════════════════════════════════════════════════════════════════
+
+Een professioneel reverb effect met een melancholisch karakter en pristine
+geluidskwaliteit. Perfect voor emotionele soundscapes, ambient muziek, en
+atmosferische producties.
+
+═══════════════════════════════════════════════════════════════════════════
+BELANGRIJKSTE KENMERKEN
+═══════════════════════════════════════════════════════════════════════════
+
+✓ GEEN VERVORMING - De reverb kleurt het geluid niet
+✓ BASS EXCLUSION - Highpass filter houdt de low-end tight
+✓ 3 MODI - Room, Hall, Cathedral met verschillende karakters
+✓ 10 PARAMETERS - Volledige controle over de reverb
+✓ ARP/SEQ COMPATIBLE - Werkt perfect met sequencers en arpeggiators
+✓ STABIEL - Geen clicks, pops of glitches
+
+═══════════════════════════════════════════════════════════════════════════
+INSTALLATIE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Bouw het effect:
+   - WSL/Linux:   cd platform/nts-1_mkii/is_it_me && make clean && make install
+   - Docker:      docker run --rm -v $(pwd):/workspace ... (zie build script)
+
+2. Het bestand "is_it_me.nts1mkiiunit" verschijnt in de map
+
+3. Upload naar de NTS-1 MKII via de KORG Librarian software
+
+═══════════════════════════════════════════════════════════════════════════
+PARAMETERS
+═══════════════════════════════════════════════════════════════════════════
+
+KNOB A - TIME (Reverb Decay Time)
+  Controleert hoe lang de reverb nadreukt
+  • 0%   = Korte reverb (0.5-1 seconde)
+  • 50%  = Medium reverb (2-3 seconden)
+  • 100% = Lange reverb (5-8 seconden)
+  TIP: Lagere waarden voor percussive sounds, hogere voor pads
+
+KNOB B - DEPTH (Reverb Amount)
+  Controleert de intensiteit van de reverb tail
+  • 0%   = Minimale reverb (alleen early reflections)
+  • 50%  = Balanced reverb
+  • 100% = Maximale reverb (lush, dichte tail)
+  TIP: Gebruik 30-50% voor subtiele ruimte, 70%+ voor ambient
+
+═══════════════════════════════════════════════════════════════════════════
+
+PARAM 0 - MIX (Dry/Wet Balance)
+  • -100% = Volledig dry (geen reverb)
+  • 0%    = 50/50 mix
+  • +100% = Volledig wet (alleen reverb)
+  TIP: Gebruik -60% tot -20% voor realistische ruimtes
+
+PARAM 1 - SIZE (Room Size)
+  Verandert de grootte van de virtuele ruimte
+  • 0%   = Klein kamertje
+  • 50%  = Medium zaal
+  • 100% = Grote kathedraal
+  TIP: Combineer met MODE voor verschillende ruimtes
+
+PARAM 2 - DAMP (High Frequency Damping)
+  Controleert hoeveel high frequencies worden gedempt in de reverb
+  • 0%   = Bright reverb (veel highs)
+  • 50%  = Natural reverb
+  • 100% = Dark reverb (warme, donkere klank)
+  TIP: Verhoog voor vintage vibe, verlaag voor moderne brightness
+
+PARAM 3 - DIFFUSE (Diffusion Amount)
+  Controleert hoe snel de reverb "smooth" wordt
+  • 0%   = Discrete echoes (hoorbare reflecties)
+  • 50%  = Balanced diffusion
+  • 100% = Dense wash (geen individuele echoes)
+  TIP: Lage waarden voor rhythmic reverb, hoge voor smooth pads
+
+PARAM 4 - PREDLY (Pre-Delay Time)
+  Vertraging tussen dry signal en reverb onset
+  • 0%   = Geen pre-delay (direct reverb)
+  • 50%  = ~125ms pre-delay
+  • 100% = ~250ms pre-delay
+  TIP: Gebruik 10-20% voor vocals, 0% voor pads
+
+PARAM 5 - EARLY (Early Reflections Level)
+  Controleert het volume van de vroege reflecties
+  • 0%   = Geen early reflections (alleen tail)
+  • 50%  = Balanced
+  • 100% = Veel early reflections (realistischer)
+  TIP: Verhoog voor realistische ruimtes, verlaag voor smooth reverb
+
+PARAM 6 - HP (Highpass Frequency) **BASS EXCLUSION**
+  Filtert lage frequenties UIT de reverb (droog signaal blijft intact!)
+  • 0%   = 30 Hz (bijna alle bass in reverb)
+  • 15%  = 150 Hz (aanbevolen - tight low-end)
+  • 50%  = 280 Hz (alleen mids/highs in reverb)
+  • 100% = 500 Hz (zeer dunne reverb)
+  TIP: Gebruik 10-20% om de bass tight te houden!
+
+PARAM 7 - LP (Lowpass Frequency)
+  Filtert hoge frequenties UIT de reverb
+  • 0%   = 1 kHz (donkere reverb)
+  • 85%  = 8.5 kHz (aanbevolen - smooth top)
+  • 100% = 12 kHz (alle highs in reverb)
+  TIP: Verlaag voor vintage/warme reverb
+
+PARAM 8 - MODE (Reverb Character)
+  Selecteert het reverb algoritme
+  • 0 = ROOM     - Klein, intiem, snelle decay
+  • 1 = HALL     - Medium, balanced, veelzijdig (DEFAULT)
+  • 2 = CATHEDRAL - Groot, langzaam, ethereal
+  TIP: Switch modes voor dramatisch verschillende karakters!
+
+═══════════════════════════════════════════════════════════════════════════
+PRESETS / TIPS
+═══════════════════════════════════════════════════════════════════════════
+
+TIGHT TECHNO ROOM
+  TIME: 40%, DEPTH: 30%, MIX: -60%
+  SIZE: 30%, DAMP: 60%, DIFFUSE: 40%
+  HP: 25%, MODE: ROOM
+  → Korte, tight reverb voor drums en bass
+
+LUSH AMBIENT HALL
+  TIME: 85%, DEPTH: 70%, MIX: -20%
+  SIZE: 75%, DAMP: 40%, DIFFUSE: 80%
+  HP: 15%, MODE: HALL
+  → Grote, volle reverb voor pads en synths
+
+MELANCHOLIC CATHEDRAL
+  TIME: 95%, DEPTH: 60%, MIX: 0%
+  SIZE: 90%, DAMP: 70%, DIFFUSE: 65%
+  EARLY: 40%, HP: 20%, MODE: CATHEDRAL
+  → Donkere, emotionele reverb voor melancholische muziek
+
+VOCAL PLATE
+  TIME: 55%, DEPTH: 45%, MIX: -40%
+  SIZE: 50%, DAMP: 55%, DIFFUSE: 70%
+  PREDLY: 15%, HP: 30%, MODE: HALL
+  → Classic vocal reverb sound
+
+BASS-EXCLUSIVE REVERB
+  TIME: 60%, DEPTH: 50%, MIX: -30%
+  HP: 35%, LP: 80%, MODE: HALL
+  → Alleen mids/highs hebben reverb, bass blijft dry!
+
+═══════════════════════════════════════════════════════════════════════════
+TECHNISCHE DETAILS
+═══════════════════════════════════════════════════════════════════════════
+
+ALGORITME:
+  - Hybrid Schroeder + Dattorro reverb topology
+  - 6 parallel comb filters (stereo pairs)
+  - 4 series allpass diffusers
+  - Early reflection network (6 taps)
+  - Pre-delay buffer (max 250ms)
+  - Biquad HP/LP filters (on reverb send only)
+  - Soft clipping for stability
+
+SAMPLE RATE: 48 kHz
+MEMORY USAGE: ~180 KB SDRAM
+CODE SIZE: ~15 KB
+
+COMPATIBILITY:
+  ✓ NTS-1 MKII
+  ✓ ARP mode
+  ✓ SEQ mode
+  ✓ MIDI input
+  ✓ Alle oscillators
+
+═══════════════════════════════════════════════════════════════════════════
+WAAROM "IS IT ME"?
+═══════════════════════════════════════════════════════════════════════════
+
+De naam verwijst naar de introspectieve, melancholische aard van dit reverb
+effect. Het is ontworpen om emotionele diepte toe te voegen aan je muziek,
+zonder de originele klank te vervormen. De vraag "Is it me?" weerspiegelt
+de self-reflective sfeer die deze reverb creëert.
+
+═══════════════════════════════════════════════════════════════════════════
+BUILD INFORMATIE
+═══════════════════════════════════════════════════════════════════════════
+
+Gebouwd voor: KORG NTS-1 MKII
+Type: Reverb Effect (revfx)
+Versie: 1.0.0
+Compiler: GCC ARM 10.3
+
+Voor vragen of support: zie de logue-sdk repository op GitHub
+
+═══════════════════════════════════════════════════════════════════════════

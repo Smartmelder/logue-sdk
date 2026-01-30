@@ -1,0 +1,468 @@
+═══════════════════════════════════════════════════════════════════════════
+ORCHESTRAL PIZZICATO - 90s SAMPLER EMULATION FOR KORG NTS-1 MKII
+═══════════════════════════════════════════════════════════════════════════
+
+Een professionele orchestral pluck synthesizer die klassieke samplers emuleert
+zoals de Roland JD-800, Fairlight CMI, en Akai S950. Dit is geen simpele
+oscillator - dit is een complete synthesizer met 21 oscillators per note!
+
+═══════════════════════════════════════════════════════════════════════════
+UNIEKE KENMERKEN
+═══════════════════════════════════════════════════════════════════════════
+
+⚡ SUPERSAW ENGINE - 7 detuned sawtooth waves per chord voice
+🎵 CHORD STACKING - Automatisch Root + Fifth + Octave parallel
+✨ INTERNAL ENVELOPE - Ultra-fast attack + exponential decay (onafhankelijk!)
+🎚️ MULTI-MODE FILTER - Lowpass, Bandpass, Highpass
+🔊 VINTAGE CHARACTER - 12-bit sampler emulatie (bit crushing + sample rate reduction)
+🎹 VELOCITY SENSITIVE - Responds to MIDI velocity
+🎛️ 10 PARAMETERS - Complete controle over elke aspect
+
+═══════════════════════════════════════════════════════════════════════════
+TECHNISCHE SPECIFICATIES (VERSTELD STAAN MOMENT!)
+═══════════════════════════════════════════════════════════════════════════
+
+**OSCILLATOR ARCHITECTURE:**
+└── 3 Chord Voices (Root, +7 semitones, +12 semitones)
+    └── Elk met 7-voice SuperSaw unison
+        └── TOTAAL: 21 simultane oscillators per note! 🤯
+
+**SIGNAL FLOW:**
+Input (MIDI Note)
+  ↓
+SuperSaw Generator (21 oscillators)
+  ├→ Root Voice (7 saws)
+  ├→ Fifth Voice (7 saws, +7 semitones)
+  └→ Octave Voice (7 saws, +12 semitones)
+  ↓
+Internal Amplitude Envelope (ultra-fast AR)
+  ↓
+Multi-Mode Filter (LP/BP/HP)
+  ↓
+Vintage Degradation (bit crushing + sample rate reduction)
+  ↓
+Stereo Output (with width control)
+
+**SPECIFICATIONS:**
+- Sample Rate: 48 kHz
+- Code Size: 8.2 KB (zeer efficiënt voor 21 oscillators!)
+- Polyphony: Mono (last note priority)
+- Latency: Minimal (<1ms)
+
+═══════════════════════════════════════════════════════════════════════════
+PARAMETERS - GEDETAILLEERDE UITLEG
+═══════════════════════════════════════════════════════════════════════════
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ KNOB A - DECAY (Pluck Decay Time)                                        ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Controleert de length van het geluid - van staccato pizzicato tot sustaining
+orchestral hit.
+
+  0%    = Ultra-short (50ms) - Tight, dry pizzicato
+  20%   = Classic orchestral pluck (200-300ms)
+  50%   = Medium sustain (1-2 seconds) - Perfect voor pads
+  100%  = Long sustain (5 seconds) - Ambient, ethereal
+
+💡 TIP: Voor klassieke 90s hits, gebruik 15-25%. Voor pads, 60%+.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ KNOB B - SPREAD (SuperSaw Detune Amount)                                 ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Controleert de width en richness van de SuperSaw oscillators.
+
+  0%    = Mono/Phased - Alle 7 oscillators in phase (dunner)
+  30%   = Subtle chorus - Licht gedetuned voor warmth
+  60%   = Classic SuperSaw - Wide, orchestral ensemble (DEFAULT)
+  100%  = Maximum width - Massief, detuned wall of sound
+
+💡 TIP: 50-70% voor realistisch orchestra. 0-30% voor synth bass.
+       80-100% voor epic trance supersaw leads.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 0 - CHORD (Chord Balance)                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Mixt het volume van de Fifth (+7) en Octave (+12) met de Root note.
+
+  0%    = Root only - Single note (geen chord)
+  30%   = Subtle chord - Root dominant, Fifth/Octave in background
+  70%   = Balanced chord - Full orchestral stack (DEFAULT)
+  100%  = Maximum chord - Fifth en Octave op vol volume
+
+💡 TIP: 0% voor monophonic leads. 60-80% voor orchestral hits.
+       100% voor massive wall of harmony.
+
+MUSICALLY:
+  Root (C) → Fifth (G) → Octave (C)
+  Dit creëert een 'power chord' effect zoals bij gitaar/orchestra.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 1 - CUTOFF (Filter Cutoff Frequency)                               ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Controleert de filter cutoff frequentie (100Hz - 12kHz).
+
+  0%    = 100 Hz - Extremely dark, bassy
+  25%   = 1 kHz - Warm, mellow (vintage sampler vibe)
+  75%   = 9 kHz - Bright, clear, modern (DEFAULT)
+  100%  = 12 kHz - Ultra-bright, crisp
+
+💡 TIP: Lagere cutoff (30-50%) voor vintage 90s vibe.
+       Hogere cutoff (70-90%) voor modern clarity.
+       Combineer met RESO voor sweet spots!
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 2 - RESO (Filter Resonance)                                        ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Voegt resonance toe aan de filter cutoff frequency.
+
+  0%    = No resonance - Natural, smooth
+  30%   = Subtle emphasis - Gentle peak (DEFAULT)
+  70%   = Strong resonance - Pronounced character
+  100%  = Self-oscillation territory - Screaming highs
+
+💡 TIP: 20-40% voor subtiele tone shaping.
+       60-80% voor acid-style sweeps (bij lage cutoff).
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 3 - BITS (Bit Depth / Vintage Grit)                                ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Simuleert vintage sampler bit depth (4-bit tot 16-bit).
+
+  0%    = 4-bit - Extreme lo-fi, heavily degraded
+  25%   = 8-bit - Classic chip music / NES vibe
+  75%   = 12-bit - Vintage sampler character (Akai S950) (DEFAULT)
+  100%  = 16-bit - Clean, modern digital
+
+💡 TIP: 70-80% voor authentic 90s sampler grit zonder te rough.
+       0-30% voor lo-fi hip-hop / chip music aesthetics.
+
+TECHNICAL: Lower values = fewer quantization levels = more distortion.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 4 - SRATE (Sample Rate Reduction)                                  ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Reduces sample rate for vintage aliasing/crunchy artifacts.
+
+  0%    = 48 kHz - Full bandwidth, clean
+  20%   = ~35 kHz - Subtle high-end roll-off (DEFAULT)
+  50%   = ~16 kHz - Noticeable aliasing, vintage vibe
+  100%  = ~6 kHz - Extreme lo-fi, telephone quality
+
+💡 TIP: 10-30% voor subtiele vintage warmth.
+       50-70% voor lo-fi/degraded aesthetic.
+       Combineer met BITS voor maximum vintage character!
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 5 - WIDTH (Stereo Width)                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Controleert hoe breed het stereo image is.
+
+  0%    = Mono - Alle oscillators in center
+  50%   = Medium spread - Balanced stereo
+  80%   = Wide stereo - Big, spacious (DEFAULT)
+  100%  = Maximum width - Extreme left/right separation
+
+💡 TIP: 70-90% voor orchestral width.
+       0-30% voor tight, punchy sounds.
+       100% voor cinematic, epic width.
+
+TECHNICAL: Pans de 7 unison voices across stereo field.
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 6 - VELSENS (Velocity Sensitivity)                                 ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Controleert hoeveel MIDI velocity de volume beïnvloedt.
+
+  0%    = No sensitivity - Alle notes even hard
+  50%   = Medium - Balanced response (DEFAULT)
+  100%  = Maximum - Zeer expressief, grote dynamiek
+
+💡 TIP: 40-60% voor expressieve playing maar consistent volume.
+       80-100% voor maximum expressive control.
+       0% voor sequenced patterns (consistent volume).
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PARAM 7 - FLTMODE (Filter Mode)                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Selecteert het filter type.
+
+  0 = LOWPASS  - Klassiek low-pass filter (DEFAULT)
+                 Vermindert highs boven cutoff
+                 Best voor: Warm, mellow tones
+
+  1 = BANDPASS - Band-pass filter
+                 Alleen frequenties rond cutoff
+                 Best voor: Nasal, vocal-like sounds
+
+  2 = HIPASS   - High-pass filter
+                 Vermindert bass onder cutoff
+                 Best voor: Thin, airy textures
+
+💡 TIP: LOWPASS (0) voor meeste gebruik - classic sound.
+       BANDPASS (1) voor interessante filter sweeps.
+       HIPASS (2) voor atmospheric pads zonder bass.
+
+═══════════════════════════════════════════════════════════════════════════
+PRESETS - VERSTELD STAAN SOUNDS
+═══════════════════════════════════════════════════════════════════════════
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 1: CLASSIC 90s ORCHESTRAL HIT                                     ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+De "klassieke" sound uit 90s rave/trance - denk aan Fairlight hits.
+
+DECAY:    20% (kort, punchy)
+SPREAD:   60% (wide ensemble)
+CHORD:    70% (volle chord stack)
+CUTOFF:   75% (bright, clear)
+RESO:     30% (subtle emphasis)
+BITS:     75% (12-bit vintage)
+SRATE:    20% (subtle lo-fi)
+WIDTH:    80% (stereo)
+VELSENS:  50% (medium)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Trance stabs, rave hits, classic orchestral punches
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 2: EPIC CINEMATIC IMPACT                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Massive, modern cinematic impact sound.
+
+DECAY:    40% (medium sustain)
+SPREAD:   80% (massive width)
+CHORD:    85% (full orchestra)
+CUTOFF:   90% (ultra-bright)
+RESO:     20% (natural)
+BITS:     95% (clean, modern)
+SRATE:    5%  (minimal reduction)
+WIDTH:    95% (maximum width)
+VELSENS:  70% (expressive)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Film trailers, epic builds, massive impacts
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 3: VINTAGE FAIRLIGHT CMI                                          ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Authentieke Fairlight CMI sampler emulatie - 80s character.
+
+DECAY:    15% (very short, clicky)
+SPREAD:   40% (moderate)
+CHORD:    60% (subtle chord)
+CUTOFF:   50% (dark, warm)
+RESO:     15% (smooth)
+BITS:     70% (11-bit range)
+SRATE:    35% (vintage aliasing)
+WIDTH:    60% (natural stereo)
+VELSENS:  40% (consistent)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: 80s pop, Art of Noise vibes, retro productions
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 4: TRANCE SUPERSAW LEAD                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Niet voor plucks, maar voor sustained supersaw leads!
+
+DECAY:    75% (long sustain)
+SPREAD:   95% (maximum detuning)
+CHORD:    100% (massive chord)
+CUTOFF:   85% (bright)
+RESO:     45% (aggressive)
+BITS:     100% (clean)
+SRATE:    0%  (full bandwidth)
+WIDTH:    90% (wide)
+VELSENS:  30% (consistent)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Trance leads, supersaw pads, wall of sound
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 5: LO-FI HIP-HOP PLUCK                                            ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Degraded, nostalgic lo-fi sound.
+
+DECAY:    25% (short but not too tight)
+SPREAD:   30% (subtle detune)
+CHORD:    50% (half chord)
+CUTOFF:   40% (dark, mellow)
+RESO:     10% (minimal)
+BITS:     30% (8-bit range)
+SRATE:    60% (heavy aliasing)
+WIDTH:    40% (narrow)
+VELSENS:  20% (minimal)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Lo-fi beats, nostalgic vibes, bedroom producer aesthetic
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 6: AGGRESSIVE ACID STAB                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Aggressive, resonant pluck met filter character.
+
+DECAY:    18% (tight)
+SPREAD:   50% (moderate)
+CHORD:    40% (root focus)
+CUTOFF:   30% (low for resonance)
+RESO:     85% (screaming!)
+BITS:     60% (gritty)
+SRATE:    15% (subtle)
+WIDTH:    70% (wide)
+VELSENS:  60% (expressive)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Acid techno, aggressive stabs, filter sweeps
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 7: AMBIENT PAD (Root Only)                                        ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Long, evolving pad zonder chord - monophonic focus.
+
+DECAY:    90% (very long)
+SPREAD:   70% (lush)
+CHORD:    0%  (root only - no fifth/octave!)
+CUTOFF:   60% (warm)
+RESO:     25% (smooth)
+BITS:     100% (clean)
+SRATE:    0%  (full quality)
+WIDTH:    100% (maximum)
+VELSENS:  80% (very expressive)
+FLTMODE:  LOWPASS
+
+🎵 USE CASE: Ambient pads, drones, atmospheric textures
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║ PRESET 8: BANDPASS VOCAL TEXTURE                                         ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+Interessante vocal-achtige texture met bandpass filter.
+
+DECAY:    35% (medium-short)
+SPREAD:   55% (moderate)
+CHORD:    65% (balanced)
+CUTOFF:   45% (mid-range focus)
+RESO:     60% (narrow band)
+BITS:     80% (mostly clean)
+SRATE:    10% (minimal)
+WIDTH:    75% (wide)
+VELSENS:  50% (balanced)
+FLTMODE:  BANDPASS
+
+🎵 USE CASE: Vocal-like textures, formant sounds, unique timbres
+
+═══════════════════════════════════════════════════════════════════════════
+ADVANCED TIPS & TRICKS
+═══════════════════════════════════════════════════════════════════════════
+
+🎛️ FILTER SWEEPS:
+   Start met CUTOFF op 10% en RESO op 70%.
+   Slowly increase CUTOFF tijdens een sequence voor classic filter sweep.
+   Werkt in alle 3 modes (LP/BP/HP) voor verschillende caractères!
+
+🎵 VELOCITY EXPRESSION:
+   Set VELSENS to 80%+ en speel dynamisch op een velocity-sensitive keyboard.
+   De envelope volume reageert op je playing dynamics.
+
+🔊 MAXIMUM GRIT:
+   BITS: 0%, SRATE: 100%, CUTOFF: 20%
+   Voor extreme lo-fi degradation - vintage chip music vibes!
+
+✨ CLEAN MODERN:
+   BITS: 100%, SRATE: 0%, CUTOFF: 90%
+   Voor pristine, modern orchestral sounds zonder vintage color.
+
+🎹 CHORD MANIPULATION:
+   - 0% CHORD = Monophonic lead (root only)
+   - 50% CHORD = Power chord (root dominant)
+   - 100% CHORD = Full triad (massive)
+
+   Try automating CHORD parameter live for dynamic orchestration!
+
+🎚️ STEREO TRICKS:
+   WIDTH at 0% + SPREAD at 100% = Massive mono sound (phase coherent)
+   WIDTH at 100% + SPREAD at 100% = Maximum stereo separation
+
+💡 ENVELOPE TRICK:
+   De interne envelope is ONAFHANKELIJK van NTS-1's eigen envelope!
+   DECAY parameter controleert de oscillator's eigen AR envelope.
+   Gebruik beide voor complex amplitude modulation!
+
+═══════════════════════════════════════════════════════════════════════════
+TECHNISCH DIEPGANG (Voor Nerds 🤓)
+═══════════════════════════════════════════════════════════════════════════
+
+**SUPERSAW ALGORITHM:**
+- 7 sawtooth oscillators per chord voice
+- Detuning range: ±12 cents per oscillator
+- Logarithmic pitch distribution for natural sound
+- Phase randomization on note-on voor width
+
+**CHORD GENERATION:**
+- Perfect Fifth: +7 semitones (ratio 3:2)
+- Perfect Octave: +12 semitones (ratio 2:1)
+- Uses 2^(semitones/12) for precise pitch calculation
+
+**ENVELOPE:**
+- Attack: <1ms (instant attack)
+- Decay: Exponential curve (not linear!)
+- Decay time: 50ms - 5000ms (adjustable)
+- Independent from NTS-1 main envelope
+
+**FILTER:**
+- Biquad IIR filter (2nd order)
+- Modes: LP, BP, HP (switchable)
+- Frequency range: 100 Hz - 12 kHz
+- Resonance: Q factor 0.7 - 16
+
+**VINTAGE DEGRADATION:**
+- Bit depth: 4-bit to 16-bit simulation
+- Sample rate: 6 kHz to 48 kHz (sample & hold)
+- Non-linear quantization for authenticity
+
+**OPTIMIZATION:**
+- Code size: 8.2 KB (optimized for STM32H7)
+- 21 oscillators + filters + envelope = onder 10 KB!
+- Real-time processing, no lookup tables needed
+
+═══════════════════════════════════════════════════════════════════════════
+INSTALLATIE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Upload 'orch_pizz.nts1mkiiunit' naar NTS-1 MKII via KORG Librarian
+2. Selecteer de oscillator op de NTS-1 MKII
+3. Speel een note en geniet van 21 oscillators! 🎹
+
+═══════════════════════════════════════════════════════════════════════════
+CREDITS
+═══════════════════════════════════════════════════════════════════════════
+
+Ontworpen voor de KORG NTS-1 MKII
+Emuleert klassieke samplers: Roland JD-800, Fairlight CMI, Akai S950
+
+Version: 1.0.0
+Platform: NTS-1 MKII
+Type: Oscillator
+Code Size: 8.2 KB
+Build Date: January 2026
+
+═══════════════════════════════════════════════════════════════════════════
+
+Enjoy creating epic 90s vibes! 🎵✨

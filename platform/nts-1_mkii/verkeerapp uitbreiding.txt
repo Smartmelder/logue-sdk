@@ -1,0 +1,40 @@
+Groen
+
+Intern Beheer
+Extern Beheer
+
+Verkeer
+
+Beleid --> Mobiliteitsplan, SPV 2030, Schoolzones, Route netwerken, Verkeersbesluiten
+Uitvoering en Beheer-->Uitvoeringsplan, Markeringslijst 
+Markeringen
+Bebording
+Hotspots
+OV
+Meldingen
+
+Ik wil het gedeelte "VERKEER" uitbreiden. 
+In het dashboard (met meldingen van Verkeer de volgende buttons toevoegen:
+1) Verkeersbesluiten
+2) Wegcategorieën: Straatnamenoverzicht (te vinden in het dashboard van "Wegen") met een overzicht van 
+a)Stroomwegen
+B) Gebiedsontsluitingswegen
+C) Erftoegangswegen
+D) GOW 30 
+E) GOW 60
+* Bij de GOW categorieën (D + E) moeten 2 opties mogelijk zijn, bijvoorbeeld door de kleur rood en groen. GOW 30 en 60 zijn nieuwe wegcategorieën voor grijze wegen. Ze kunnen dus wel al zijn toegewezen maar de reconstructie heeft nog niet plaatsgevonden. In dat geval is het dus "ROOD": NOG NIET UITGEVOERD "GROEN": RECONSTRUCTIE IS UITGEVOERD.
+F. Schoolzones
+3) Assets 
+3.1) Markering
+3.1A) Kruispunten: Overzicht met Alle kruispunten (straatnamen) met markering 2 layers: Gelijkwaardige kruispunten en Voorrangskruispunten. Daarnaast kan er worden aangegeven of het markering is met Wegenverf of Thermoplast.
+3.1B Lijn- en Kantmarkering 
+3.1C OVerige figuratie (zoals schrikstrepen, puntmarkering bij verkeersobstakels enz.)
+***** De assets moeten "klikbaar" zijn, zodat de aangevinkte markering assets als (excel, pdf) lijst geëxporteerd kunnen worden. Het doel hiervan is: Met enkele klikken een uitvoeringslijst voor de aannemer genereren (met uiteindelijk de exacte eenheden).
+
+
+3.2) Verkeersborden (interactieve kaart met alle verkeersborden: https://www.arcgis.com/home/webmap/viewer.html?webmap=396aaff1601145f69b22a93dd944c318 - 
+https://www.arcgis.com/apps/mapviewer/index.html?webmap=396aaff1601145f69b22a93dd944c318    -     
+https://docs.ndw.nu/data-uitwisseling/interface-beschrijvingen/verkeersborden-api/) 
+3.3) Verkeersobstakels: Een interactieve kaart waar alle verkeersobstakels als assets zichtbaar zijn (zoals verkeerseilanden, bloembakken als wegversmalling, Verkeersplateaus enz.).
+4) Hotspots (interactieve kaart waar vaak ongelukken zijn gebeurd of die door burgers als onveilig worden gemeld)
+5) Melvin: met Een koppeling naar Melvin (site om wegwerkzaamheden met afsluitingen / omleidingen te melden). https://iam.ndw.nu
