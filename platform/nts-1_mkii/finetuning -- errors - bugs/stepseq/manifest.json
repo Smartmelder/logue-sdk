@@ -1,0 +1,26 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 4,
+        "version": "1.0-0",
+        "name": "STEPSEQ",
+        "num_param": 11,
+        "params": [
+            ["Step Select", 0, 15, ""],
+            ["Pitch Offset", -24, 24, "semi"],
+            ["Filter Mod", 0, 100, "%"],
+            ["Gate Length", 0, 100, "%"],
+            ["Seq Length", 0, 15, ""],
+            ["Swing Amount", 0, 100, "%"],
+            ["Ratchet", 0, 3, ""],
+            ["Probability", 0, 100, "%"],
+            ["Pattern", 0, 7, ""],
+            ["Direction", 0, 3, ""],
+            ["Play", 0, 1, ""]
+        ]
+    }
+}
+

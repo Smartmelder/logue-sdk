@@ -1,0 +1,74 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 12,
+        "version": "1.0-0",
+        "name": "S-1 TWEAK",
+        "num_param": 10,
+        "params": [
+            [
+                "Wave Mix",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Draw Shape",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Chop/Comb",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Mode",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Chord Type",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Detune/Spread",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Noise/Riser",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Rattle/SubStep",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Probability",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Motion",
+                0,
+                100,
+                "%"
+            ]
+        ]
+    }
+}

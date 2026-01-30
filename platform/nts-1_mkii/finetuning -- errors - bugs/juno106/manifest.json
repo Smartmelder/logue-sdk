@@ -1,0 +1,24 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 0,
+        "version": "2.0-0",
+        "name": "J106MEGA",
+        "num_param": 10,
+        "params": [
+            ["Wave", 0, 100, "%"],
+            ["FX", 0, 100, "%"],
+            ["PW", 0, 100, "%"],
+            ["Detune/Porta", 0, 100, "%"],
+            ["Sub", 0, 100, "%"],
+            ["HPF", 0, 100, "%"],
+            ["LFO Rate", 0, 100, "%"],
+            ["LFO Depth", 0, 100, "%"],
+            ["Mode", 0, 15, ""],
+            ["Features", 0, 15, ""]
+        ]
+    }
+}

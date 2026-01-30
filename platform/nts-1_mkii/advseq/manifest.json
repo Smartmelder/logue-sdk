@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 5,
+        "version": "1.0-0",
+        "name": "ADVSEQ",
+        "num_param": 10,
+        "params": [
+            ["Clock Mode", 0, 1, ""],
+            ["Seq Length", 1, 128, ""],
+            ["Slice Length", 1, 32, ""],
+            ["Smoothing", 0, 100, "%"],
+            ["Mod Depth", 0, 100, "%"],
+            ["Operation", 0, 7, ""],
+            ["Shift", -64, 64, ""],
+            ["Rate Div", 0, 4, ""],
+            ["Swing", 0, 100, "%"],
+            ["Mix", 0, 100, "%"]
+        ]
+    }
+}
+

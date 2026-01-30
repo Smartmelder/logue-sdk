@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 22,
+        "version": "1.0-0",
+        "name": "TIMBREKUT",
+        "num_param": 10,
+        "params": [
+            ["Character", 0, 100, "%"],
+            ["Brightness", 0, 100, "%"],
+            ["Formant", 0, 100, "%"],
+            ["Motion", 0, 100, "%"],
+            ["Ensemble", 0, 100, "%"],
+            ["Harmonic", 0, 100, "%"],
+            ["Attack", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Color", 0, 100, "%"],
+            ["Depth", 0, 100, "%"]
+        ]
+    }
+}
+

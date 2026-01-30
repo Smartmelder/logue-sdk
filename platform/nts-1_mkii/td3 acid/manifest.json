@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 5,
+        "version": "1.0-0",
+        "name": "TD3ACID",
+        "num_param": 10,
+        "params": [
+            ["Cutoff", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Env Mod", 0, 100, "%"],
+            ["Decay", 0, 100, "%"],
+            ["Accent", 0, 100, "%"],
+            ["Wave", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Distortion", 0, 100, "%"],
+            ["Mode", 0, 3, ""],
+            ["Slide", 0, 3, ""]
+        ]
+    }
+}
+

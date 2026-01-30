@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 12,  // Different ID from ultra
+        "version": "1.0-0",
+        "name": "M1BRASS",
+        "num_param": 10,
+        "params": [
+            ["Brightness", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Ensemble", 0, 100, "%"],
+            ["Vibrato", 0, 100, "%"],
+            ["Breath", 0, 100, "%"],
+            ["Attack", 0, 100, "%"],
+            ["Release", 0, 100, "%"],
+            ["Patch", 0, 11, ""],
+            ["Voices", 0, 3, ""]
+        ]
+    }
+}
+

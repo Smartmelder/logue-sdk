@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "delfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 5,
+        "version": "1.0-0",
+        "name": "KAOSSLOOP",
+        "num_param": 10,
+        "params": [
+            ["Time", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Layer 1", 0, 100, "%"],
+            ["Layer 2", 0, 100, "%"],
+            ["Layer 3", 0, 100, "%"],
+            ["Layer 4", 0, 100, "%"],
+            ["Length", 0, 15, ""],
+            ["Mode", 0, 7, ""],
+            ["Quantize", 0, 3, ""]
+        ]
+    }
+}
+

@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "revfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 19,
+        "version": "1.0-0",
+        "name": "KUTSHIMR",
+        "num_param": 10,
+        "params": [
+            ["Type", 0, 3, ""],
+            ["Time", 0, 100, "%"],
+            ["Shimmer", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Mod Rate", 0, 100, "%"],
+            ["Mod Depth", 0, 100, "%"],
+            ["Tone", 0, 100, "%"],
+            ["Pre-Delay", 0, 100, "%"],
+            ["Duck", 0, 100, "%"],
+            ["Freeze", 0, 1, ""]
+        ]
+    }
+}
+

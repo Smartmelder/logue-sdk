@@ -1,0 +1,74 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "revfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 14,
+        "version": "1.0-0",
+        "name": "EARLY BEAST",
+        "num_param": 10,
+        "params": [
+            [
+                "Pre-Delay",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Size",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Density",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Spin (Rate)",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Wander (Depth)",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Low Mult",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Diffusion",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Width",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Bright",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Late Mix",
+                0,
+                100,
+                "%"
+            ]
+        ]
+    }
+}

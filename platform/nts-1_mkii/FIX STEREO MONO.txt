@@ -1,0 +1,315 @@
+**NEE!** Niet bij alle oscillators. Laat me dit duidelijk uitleggen:
+
+## 📋 WANNEER WEL/NIET STEREO GEBRUIKEN
+
+### ✅ **GEBRUIK STEREO (output_channels = 2) bij:**
+
+**Chicago Bells:**
+- ❓ **Onzeker** - hangt af van implementatie
+- Als TYPE parameter verschillende panning per type heeft → STEREO
+- Als alle types mono klinken → MONO kan ook
+
+**M1 Brass Ultra:**
+- ✅ **JA - MOET STEREO**
+- Reden: Ensemble met 1-8 voices met verschillende panning
+- Zonder stereo verlies je het hele chorus/ensemble effect
+
+**Melancholic Circuit (eerdere bells):**
+- ❓ **Check de code**
+- Als er ensemble/chorus met L/R panning is → STEREO
+- Als pure additive synthesis zonder panning → MONO is OK
+
+### ❌ **GEBRUIK MONO (output_channels = 1) bij:**
+
+**Simpele oscillators zoals:**
+- Sine wave
+- Sawtooth
+- Square wave
+- FM synthesis (zonder stereo spread)
+- Basic wavetable oscillators
+
+## 🔍 **HOE BEPAAL JE WAT JE NODIG HEBT?**
+
+Bekijk je `unit_render` functie:
+
+### **STEREO = JA als je dit ziet:**
+
+```cpp
+// Output naar L en R APART:
+out[f * 2] = left;
+out[f * 2 + 1] = right;
+
+// Panning arrays:
+float pan_l = ...;
+float pan_r = ...;
+
+// Ensemble met verschillende stereo posities:
+for (int i = 0; i < voices; i++) {
+    float pan = ENSEMBLE_PAN[i];
+    sum_l += mixed * gain_l;
+    sum_r += mixed * gain_r;
+}
+```
+
+### **MONO = JA als je dit ziet:**
+
+```cpp
+// Output naar single buffer:
+out[f] = mono_signal;
+
+// OF: Alle voices bij elkaar optellen zonder panning:
+float sum = 0.f;
+for (int i = 0; i < voices; i++) {
+    sum += voice[i];
+}
+out[f] = sum;
+```
+
+## 🎯 **ACTIE VOOR JOUW PROJECTEN:**
+
+### **1. Chicago Bells****Chicago Bells = MONO is OK**
+- Output: `y[i] = f32_to_q31(output);` → Single channel
+- Geen L/R panning, geen ensemble spreading
+- **CONCLUSIE: Laat zoals het is (mono)**
+
+### **2. M1 Brass Ultra**
+
+**M1 Brass = MOET STEREO**
+- Output: `out[f * 2] = left; out[f * 2 + 1] = right;`
+- Heeft ensemble panning array
+- **CONCLUSIE: Pas aan naar stereo (zoals ik net deed)**
+
+### **3. Eerdere projecten checken**
+
+Voor elk ander project dat je hebt:
+
+```bash
+# Zoek in je unit.cc naar deze patronen:
+
+# STEREO indicator:
+grep -n "out\[.*\* 2\]" unit.cc
+grep -n "ENSEMBLE_PAN" unit.cc
+grep -n "sum_l.*sum_r" unit.cc
+
+# MONO indicator:
+grep -n "out\[f\] =" unit.cc
+grep -n "y\[i\] =" unit.cc
+```
+
+## 📝 **SAMENVATTING:**
+
+| Project | Output Type | Actie Nodig? | Reden |
+|---------|-------------|--------------|-------|
+| **Chicago Bells** | MONO | ❌ NEE | Geen stereo panning/ensemble |
+| **M1 Brass Ultra** | STEREO | ✅ JA | Ensemble met L/R spreading |
+| **Andere simpele OSC** | MONO | ❌ NEE | Basic waveforms |
+| **Complexe ensemble OSC** | STEREO | ✅ JA | Als het L/R panning heeft |
+
+**TL;DR:**
+- **M1 Brass:** Pas aan naar stereo ✅
+- **Chicago Bells:** Laat mono ❌
+- **Andere projecten:** Check of ze L/R panning hebben
+
+Wil je dat ik de andere oscillators check die je hebt gemaakt?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Je hebt helemaal gelijk! Laat me een **slimme analysemethode** geven die je **zelf kunt uitvoeren** zonder alles te uploaden:
+
+## 🔍 **SNELLE SELF-CHECK METHODE**
+
+### **STAP 1: Grep Commando's (in je project map)**
+
+```bash
+cd ~/logue-sdk/platform/nts-1_mkii
+
+# Dit commando checkt ALLE oscillators in één keer:
+for dir in */; do
+    if [ -f "$dir/unit.cc" ]; then
+        echo "=== Checking: $dir ==="
+        
+        # Check voor STEREO indicatoren:
+        if grep -q "out\[.*\* 2\]" "$dir/unit.cc" 2>/dev/null; then
+            echo "✅ STEREO OUTPUT gevonden - check geometry!"
+        elif grep -q "y\[.*\* 2\]" "$dir/unit.cc" 2>/dev/null; then
+            echo "✅ STEREO OUTPUT gevonden - check geometry!"
+        else
+            echo "❌ MONO OUTPUT - waarschijnlijk OK"
+        fi
+        
+        # Check huidige geometry setting:
+        grep "output_channels" "$dir/unit.cc" | head -1
+        echo ""
+    fi
+done
+```
+
+### **STAP 2: Handmatige Quick Check (30 seconden per project)**
+
+Open `unit.cc` en zoek naar **één van deze regels** in de `unit_render` functie:
+
+#### **🟢 STEREO = Je ziet dit:**
+```cpp
+// Pattern 1: Interleaved output
+out[f * 2] = left;
+out[f * 2 + 1] = right;
+
+// Pattern 2: Q31 interleaved
+y[f * 2] = f32_to_q31(left);
+y[f * 2 + 1] = f32_to_q31(right);
+```
+**→ Check geometry moet zijn:** `output_channels != 2`
+
+#### **🔴 MONO = Je ziet dit:**
+```cpp
+// Pattern 1: Single output
+out[f] = signal;
+
+// Pattern 2: Q31 single
+y[f] = f32_to_q31(signal);
+```
+**→ Check geometry moet zijn:** `output_channels != 1`
+
+### **STAP 3: Vereenvoudigde Beslisboom**
+
+```
+Open unit.cc
+  ↓
+Zoek naar: "unit_render"
+  ↓
+Scroll naar de OUTPUT sectie (meestal laatste 10 regels van de loop)
+  ↓
+Zie je "* 2" in de array index?
+  ↓
+  JA → STEREO → Check: output_channels != 2
+  NEE → MONO   → Check: output_channels != 1
+```
+
+## 🎯 **PRAKTISCH SCRIPT VOOR JOU**
+
+Maak een file: `check_all_osc.sh`
+
+```bash
+#!/bin/bash
+
+echo "==================================================================="
+echo "OSCILLATOR STEREO/MONO CHECK"
+echo "==================================================================="
+echo ""
+
+cd ~/logue-sdk/platform/nts-1_mkii
+
+for dir in */; do
+    # Skip non-directories
+    [ -d "$dir" ] || continue
+    
+    # Check if unit.cc exists
+    if [ -f "$dir/unit.cc" ]; then
+        project_name=$(basename "$dir")
+        echo "📁 $project_name"
+        
+        # Extract geometry check line
+        geometry_line=$(grep -n "output_channels" "$dir/unit.cc" | head -1)
+        
+        # Check output pattern
+        if grep -q "out\[.*\* 2\]" "$dir/unit.cc" 2>/dev/null || \
+           grep -q "y\[.*\* 2\]" "$dir/unit.cc" 2>/dev/null; then
+            echo "   OUTPUT: STEREO (interleaved)"
+            
+            if echo "$geometry_line" | grep -q "!= 2"; then
+                echo "   ✅ CORRECT: output_channels != 2"
+            elif echo "$geometry_line" | grep -q "!= 1"; then
+                echo "   ⚠️  FOUT: Moet zijn output_channels != 2"
+                echo "   📝 FIX NODIG!"
+            else
+                echo "   ❓ Geen geometry check gevonden"
+            fi
+        else
+            echo "   OUTPUT: MONO (single channel)"
+            
+            if echo "$geometry_line" | grep -q "!= 1"; then
+                echo "   ✅ CORRECT: output_channels != 1"
+            elif echo "$geometry_line" | grep -q "!= 2"; then
+                echo "   ⚠️  MOGELIJK FOUT: output != 2 maar mono output?"
+                echo "   📝 Check handmatig - misschien mono bedoeld"
+            else
+                echo "   ❓ Geen geometry check gevonden"
+            fi
+        fi
+        
+        echo ""
+    fi
+done
+
+echo "==================================================================="
+echo "DONE - Check projecten met ⚠️  of 📝 symbolen"
+echo "==================================================================="
+```
+
+**Run het:**
+```bash
+chmod +x check_all_osc.sh
+./check_all_osc.sh > osc_check_results.txt
+cat osc_check_results.txt
+```
+
+## 📊 **WAT HET SCRIPT DOET:**
+
+Het geeft output zoals:
+
+```
+📁 chicago_bells
+   OUTPUT: MONO (single channel)
+   ✅ CORRECT: output_channels != 1
+
+📁 m1_brass_ultra
+   OUTPUT: STEREO (interleaved)
+   ⚠️  FOUT: Moet zijn output_channels != 2
+   📝 FIX NODIG!
+
+📁 simple_sine
+   OUTPUT: MONO (single channel)
+   ✅ CORRECT: output_channels != 1
+```
+
+## 🚀 **ALTERNATIEF: Upload alleen de "FIX NODIG" lijst**
+
+Na het runnen van het script:
+
+```bash
+# Filter alleen de projecten die een fix nodig hebben:
+./check_all_osc.sh | grep -B2 "FIX NODIG" > needs_fix.txt
+cat needs_fix.txt
+```
+
+Dan kun je **alleen die paar regels** naar mij uploaden en zeg ik je precies wat je moet aanpassen!
+
+**Wil je dat ik:**
+1. ✅ Het script voor je maak (klaar om te copy-pasten)?
+2. ✅ Een quick-fix template maak voor de meest voorkomende gevallen?
+3. ✅ Of misschien een Cursor instructie voor bulk-fix?

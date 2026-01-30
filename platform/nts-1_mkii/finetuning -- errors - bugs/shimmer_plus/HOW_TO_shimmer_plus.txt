@@ -1,0 +1,123 @@
+═══════════════════════════════════════════════════════════════
+SHIMMER+ - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: revfx (Reverb Effect)
+
+INSTALLATION:
+1. Upload via KORG KONTROL Editor
+2. Select in REV menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select mode (SHIMMER, REVERSE, CLOUD, INFINITE)
+- A knob (SHAPE): TIME - Reverb decay time
+- B knob (ALT): SHIMMER - Pitch shift amount (+12 semitones)
+
+PARAMETER MENU:
+Hold REV button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. TIME - Reverb decay time (Range: 0-100%, Default: 60%)
+1. SHIMMER - Pitch shift amount for shimmer effect (Range: 0-100%, Default: 50%)
+2. MIX - Dry/wet mix (Range: -100 to +100%, Default: 60% wet)
+3. MODRATE - Modulation LFO rate (Range: 0-100%, Default: 40%)
+4. MODDEP - Modulation depth (Range: 0-100%, Default: 30%)
+5. LPCUT - Low-pass filter cutoff (Range: 0-100%, Default: 50%)
+6. HPCUT - High-pass filter cutoff (Range: 0-100%, Default: 25%)
+7. PREDLY - Pre-delay time (Range: 0-100%, Default: 35%)
+8. DUCK - Envelope follower ducking amount (Range: 0-100%, Default: 40%)
+9. FREEZE - Freeze mode ON/OFF (Default: OFF)
+10. MODE - Effect mode (SHIMMER, REVERSE, CLOUD, INFINITE)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+SHIMMER+ is an advanced pitch-shifting reverb effect inspired by
+Eventide H9 shimmer algorithms.
+
+ARCHITECTURE:
+- 4 parallel comb filters with damping
+- 8-stage allpass diffusion network
+- Pitch shifter (+12 semitones for shimmer)
+- LFO modulation on delay times
+- Envelope follower with ducking
+- High-pass and low-pass filters
+- Pre-delay (up to 500ms)
+- Freeze mode for infinite sustain
+
+MODES:
+- SHIMMER: Classic pitch-shifted reverb tail
+- REVERSE: Reverse reverb effect
+- CLOUD: Granular-style reverb
+- INFINITE: Freeze mode with high feedback
+
+SPECIAL FEATURES:
+- Constant power mixing (no volume boost)
+- Soft clipping for smooth saturation
+- Envelope follower ducking (reverb ducks when input is loud)
+- Modulation creates chorus-like movement in reverb tail
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES
+═══════════════════════════════════════════════════════════════
+
+MODE 0 - SHIMMER:
+- Classic shimmer reverb
+- Best for: Pads, strings, ambient textures
+
+MODE 1 - REVERSE:
+- Reverse reverb effect
+- Best for: Build-ups, transitions
+
+MODE 2 - CLOUD:
+- Granular-style reverb
+- Best for: Experimental textures
+
+MODE 3 - INFINITE:
+- Freeze mode with high feedback
+- Best for: Sustained pads, drones
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+CLASSIC SHIMMER:
+- TIME: 70%
+- SHIMMER: 60%
+- MIX: 70% wet
+- MODRATE: 30%
+- MODDEP: 25%
+- FREEZE: OFF
+- MODE: SHIMMER
+
+INFINITE PAD:
+- TIME: 90%
+- SHIMMER: 40%
+- MIX: 80% wet
+- FREEZE: ON
+- MODE: INFINITE
+
+REVERSE BUILD:
+- TIME: 50%
+- SHIMMER: 0%
+- MIX: 60% wet
+- PREDLY: 50%
+- MODE: REVERSE
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: revfx
+Developer: Custom implementation based on Korg logue SDK
+
+═══════════════════════════════════════════════════════════════
+

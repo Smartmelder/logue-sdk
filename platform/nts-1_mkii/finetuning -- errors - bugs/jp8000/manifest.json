@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 6,
+        "version": "1.0-0",
+        "name": "JP8000",
+        "num_param": 10,
+        "params": [
+            ["Supersaw Detune", 0, 100, "%"],
+            ["Filter Cutoff", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Env Mod Amount", 0, 100, "%"],
+            ["Feedback Osc", 0, 100, "%"],
+            ["LFO1 Rate", 0, 100, "%"],
+            ["LFO2 Rate", 0, 100, "%"],
+            ["Cross Mod", 0, 100, "%"],
+            ["Waveform", 0, 15, ""],
+            ["Motion Pattern", 0, 15, ""]
+        ]
+    }
+}
+

@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 11,
+        "version": "1.0-0",
+        "name": "HOUSE STACK",
+        "num_param": 10,
+        "params": [
+            ["Wave Type", 0, 4, ""],
+            ["Detune", 0, 100, "%"],
+            ["Stereo Spread", 0, 100, "%"],
+            ["Chord Interval", 0, 15, ""],
+            ["Chord Spread", 0, 100, "%"],
+            ["Tone (Tilt EQ)", 0, 100, "%"],
+            ["Attack Shape", 0, 100, "%"],
+            ["Harmonic Bend", 0, 100, "%"],
+            ["Glide", 0, 100, "%"],
+            ["Mod Amount", 0, 100, "%"]
+        ]
+    }
+}
+

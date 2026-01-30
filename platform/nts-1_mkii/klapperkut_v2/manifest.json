@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 11,
+        "version": "2.0-0",
+        "name": "KLAPPERKUT V2",
+        "num_param": 10,
+        "params": [
+            ["Mode", 0, 7, ""],
+            ["Gain", 0, 100, "%"],
+            ["Depth", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Sync", 0, 5, ""],
+            ["Shape", 0, 3, ""],
+            ["Stereo", 0, 100, "%"],
+            ["Color", 0, 100, "%"],
+            ["Duck", 0, 100, "%"]
+        ]
+    }
+}
+

@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 12,
+        "version": "1.0-0",
+        "name": "KUTCHORUS",
+        "num_param": 10,
+        "params": [
+            ["Type", 0, 100, "%"],
+            ["Rate", 0, 100, "%"],
+            ["Depth", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Width", 0, 100, "%"],
+            ["Tone", 0, 100, "%"],
+            ["Motion", 0, 100, "%"],
+            ["Bass Cut", 0, 100, "%"],
+            ["Voices", 2, 4, ""],
+            ["Feedback", 0, 100, "%"]
+        ]
+    }
+}
+

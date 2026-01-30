@@ -1,0 +1,109 @@
+================================================================================
+SEQUENCE FILTER - TEMPO-SYNCED STEP SEQUENCER FILTER
+================================================================================
+
+FEATURES:
+- 16-step pattern sequencer
+- Tempo-synced filter modulation
+- 3 cutoff ranges (HIGH, MID, LOW)
+- Resonance control
+- Pattern selection
+- Feedback control
+- 16 tempo divisions
+- 8 preset patterns
+- Sync on/off
+- Forward/reverse direction
+
+================================================================================
+HARDWARE CONTROLS
+================================================================================
+
+TYPE KNOB (Knob A):
+  → Controls RANGE (cutoff range)
+  → HIGH / MID / LOW
+
+SHAPE KNOB (Knob B):
+  → Controls RESONANCE
+  → Higher = more resonance
+
+================================================================================
+10 PARAMETERS
+================================================================================
+
+0. RANGE (TYPE knob)
+   Range: 0-100%
+   Default: 50% (MID)
+   Use: Filter cutoff range
+   - 0-33%: LOW (safe low range)
+   - 33-66%: MID (medium range)
+   - 66-100%: HIGH (safe high range)
+
+1. RESONANCE (SHAPE knob)
+   Range: 0-100%
+   Default: 60%
+   Use: Filter resonance amount
+   - 0%: No resonance
+   - 50%: Moderate resonance
+   - 100%: Maximum resonance
+
+2. SPEED
+   Range: 0-100%
+   Default: 75%
+   Use: Pattern speed
+   - 0%: Very slow
+   - 50%: Moderate speed
+   - 100%: Fast
+
+3. PATTERN
+   Range: 0-100%
+   Default: 30%
+   Use: Pattern selection
+   - 0%: Pattern 0
+   - 50%: Pattern 4
+   - 100%: Pattern 7
+
+4. MIX
+   Range: 0-100%
+   Default: 50%
+   Use: Dry/wet balance
+   - 0%: Full dry
+   - 50%: Balanced
+   - 100%: Full wet
+
+5. FEEDBACK
+   Range: 0-100%
+   Default: 40%
+   Use: Feedback amount
+   - 0%: No feedback
+   - 50%: Moderate feedback
+   - 100%: Maximum feedback
+
+6. DIVISION
+   Range: 0-15
+   Default: 3
+   Use: Tempo division
+   - 0-2: 1/4 (straight, dotted, triplet)
+   - 3-5: 1/8 (straight, dotted, triplet)
+   - 6-8: 1/16 (straight, dotted, triplet)
+   - 9-11: 1/32 (straight, dotted, triplet)
+   - 12-15: Other divisions
+
+7. PRESET
+   Range: 0-7
+   Default: 0
+   Use: Preset pattern
+   - 0-7: 8 different patterns
+
+8. SYNC
+   Range: 0-1 (OFF/ON)
+   Default: 1 (ON)
+   Use: Tempo sync
+   - 0: OFF (free running)
+   - 1: ON (tempo synced)
+
+9. DIRECTION
+   Range: 0-1 (FORWARD/REVERSE)
+   Default: 0 (FORWARD)
+   Use: Pattern direction
+   - 0: Forward
+   - 1: Reverse

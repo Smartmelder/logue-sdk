@@ -1,0 +1,177 @@
+================================================================================
+ARP KUT - ULTIMATE ARPEGGIATOR OSCILLATOR
+================================================================================
+
+FEATURES:
+- 16 arpeggio patterns (UP, DOWN, RANDOM, EUCLIDEAN, etc.)
+- 1-4 octave range
+- 1-16 steps per pattern
+- Gate control (staccato to legato)
+- Swing/shuffle control
+- Accent system
+- 4 waveform shapes (SAW, PULSE, TRI, SINE)
+- Detune layer for width
+- Sub oscillator (-1 octave)
+- Simple low-pass filter
+- Tempo sync
+
+NOTE: This is a TRUE ARPEGGIATOR OSCILLATOR that generates notes in
+arpeggio patterns. Hold multiple keys to create chord arpeggios!
+
+================================================================================
+HARDWARE CONTROLS
+================================================================================
+
+TYPE KNOB (Knob A):
+  → Controls PATTERN (0-15)
+  → Selects arpeggio pattern type
+
+SHAPE KNOB (Knob B):
+  → Controls OCTAVES (1-4)
+  → Higher = more octaves in arpeggio
+
+================================================================================
+10 PARAMETERS
+================================================================================
+
+0. PATTERN (TYPE knob)
+   Range: 0-15
+   Default: 0 (UP)
+   Use: Arpeggio pattern selection
+   - 0: UP - Ascending notes
+   - 1: DOWN - Descending notes
+   - 2: UP-DOWN - Pendulum (up then down)
+   - 3: DOWN-UP - Inverted pendulum
+   - 4: RANDOM - Random note order
+   - 5: DRUNK - Random walk (smooth transitions)
+   - 6: OCTAVES - Jump between octaves
+   - 7: SPIRAL - Expanding spiral pattern
+   - 8: BOUNCE - Bouncing pattern
+   - 9: STUTTER - Repeated notes
+   - 10: SKIP - Skip every other note
+   - 11: DOUBLE - Play each note twice
+   - 12: THIRDS - Major third intervals
+   - 13: FIFTHS - Perfect fifth intervals
+   - 14: BROKEN - Broken chord style
+   - 15: EUCLIDEAN - Euclidean rhythm pattern
+
+1. OCTAVES (SHAPE knob)
+   Range: 1-4
+   Default: 2
+   Use: Octave range for arpeggio
+   - 1: Single octave
+   - 2: Two octaves
+   - 3: Three octaves
+   - 4: Four octaves
+
+2. STEPS
+   Range: 1-16
+   Default: 8
+   Use: Number of steps in pattern
+   - 1-4: Short patterns (fast)
+   - 5-8: Medium patterns
+   - 9-16: Long patterns (complex)
+
+3. GATE
+   Range: 0-100%
+   Default: 75%
+   Use: Gate time (note length)
+   - 0%: Very short (staccato)
+   - 50%: Moderate gate
+   - 100%: Full gate (legato, overlapping)
+
+4. SWING
+   Range: 0-100%
+   Default: 50% (no swing)
+   Use: Swing/shuffle amount
+   - 0%: Straight timing
+   - 50%: No swing (straight)
+   - 100%: Maximum swing (shuffle feel)
+
+5. ACCENT
+   Range: 0-100%
+   Default: 30%
+   Use: Accent amount on every 4th step
+   - 0%: No accent
+   - 50%: Moderate accent
+   - 100%: Maximum accent
+
+6. SHAPE
+   Range: 0-3
+   Default: 0 (SAW)
+   Use: Waveform shape
+   - 0: SAW - Bright, aggressive
+   - 1: PULSE - Classic square wave
+   - 2: TRI - Smooth triangle wave
+   - 3: SINE - Pure sine wave
+
+7. DETUNE
+   Range: 0-100%
+   Default: 20%
+   Use: Detune layer amount (adds width)
+   - 0%: No detune (mono)
+   - 50%: Moderate detune
+   - 100%: Maximum detune (wide)
+
+8. SUB
+   Range: 0-100%
+   Default: 20%
+   Use: Sub oscillator level (-1 octave)
+   - 0%: No sub
+   - 50%: Balanced sub
+   - 100%: Strong sub (bass heavy)
+
+9. FILTER
+   Range: 0-100%
+   Default: 60%
+   Use: Low-pass filter cutoff
+   - 0%: Dark (filtered)
+   - 50%: Balanced
+   - 100%: Bright (open filter)
+
+================================================================================
+USAGE TIPS
+================================================================================
+
+- Hold multiple keys to create chord arpeggios
+- Use EUCLIDEAN pattern for techno/EDM rhythms
+- DRUNK pattern creates smooth random variations
+- Combine with MODFX effects for more movement
+- Lower GATE for staccato, higher for legato
+- Use SUB for bass-heavy arpeggios
+- DETUNE adds stereo width and movement
+- Try different SHAPE settings for different timbres
+
+================================================================================
+PATTERN EXAMPLES
+================================================================================
+
+CLASSIC ARPEGGIOS:
+- UP: C-E-G-C (ascending)
+- DOWN: C-G-E-C (descending)
+- UP-DOWN: C-E-G-C-G-E-C (pendulum)
+
+TECHNO PATTERNS:
+- EUCLIDEAN: Creates complex rhythmic patterns
+- STUTTER: Repeats notes for glitch effects
+- SKIP: Creates gaps in pattern
+
+HARMONIC PATTERNS:
+- THIRDS: Major third intervals (C-E-G#)
+- FIFTHS: Perfect fifth intervals (C-G-D)
+- OCTAVES: Jumps between octaves
+
+RANDOM PATTERNS:
+- RANDOM: Completely random order
+- DRUNK: Smooth random walk (less jarring)
+
+================================================================================
+TECHNICAL NOTES
+================================================================================
+
+- Syncs to MIDI clock tempo
+- Arpeggiator runs at 16th note resolution
+- Smooth gate envelope prevents clicks
+- Works with any MIDI input
+- Generates mono output
+

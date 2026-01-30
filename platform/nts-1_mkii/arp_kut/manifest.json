@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 16,
+        "version": "1.0-0",
+        "name": "ARP KUT",
+        "num_param": 10,
+        "params": [
+            ["Pattern", 0, 15, ""],
+            ["Octaves", 1, 4, ""],
+            ["Steps", 1, 16, ""],
+            ["Gate", 0, 100, "%"],
+            ["Swing", 0, 100, "%"],
+            ["Accent", 0, 100, "%"],
+            ["Shape", 0, 3, ""],
+            ["Detune", 0, 100, "%"],
+            ["Sub", 0, 100, "%"],
+            ["Filter", 0, 100, "%"]
+        ]
+    }
+}
+

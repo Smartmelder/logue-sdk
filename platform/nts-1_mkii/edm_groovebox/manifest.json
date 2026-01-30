@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 15,
+        "version": "1.0-0",
+        "name": "GROOVEBOX",
+        "num_param": 10,
+        "params": [
+            ["Kick Pattern", 0, 3, ""],
+            ["Chord Prog", 0, 7, ""],
+            ["Clap Dens", 0, 100, "%"],
+            ["Hat Dens", 0, 100, "%"],
+            ["Kick Vol", 0, 100, "%"],
+            ["Chord Vol", 0, 100, "%"],
+            ["Perc Vol", 0, 100, "%"],
+            ["Tempo", 0, 100, "%"],
+            ["Loop Bars", 0, 3, ""],
+            ["Humanize", 0, 100, "%"]
+        ]
+    }
+}
+

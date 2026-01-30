@@ -1,0 +1,104 @@
+═══════════════════════════════════════════════════════════════
+M1ULTRA - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: osc (Oscillator)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in OSC menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select patch/preset
+- A knob (SHAPE): BRIGHT (Brightness)
+- B knob (ALT): RESONANCE (Resonance)
+
+PARAMETER MENU:
+Hold OSC button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. BRIGHT - Brightness (Range: 0-1023, Default: 614)
+1. RESONANCE - Resonance (Range: 0-1023, Default: 768)
+2. DETUNE - Detune amount (Range: 0-1023, Default: 512)
+3. ENSEMBLE - Ensemble amount (Range: 0-1023, Default: 409)
+4. VIBRATO - Vibrato amount (Range: 0-1023, Default: 409)
+5. BREATH - Breath controller (Range: 0-1023, Default: 256)
+6. ATTACK - Attack time (Range: 0-1023, Default: 666)
+7. RELEASE - Release time (Range: 0-1023, Default: 819)
+8. PATCH - Patch selection (Range: 0-11, Default: 0)
+9. VOICES - Voice count (Range: 0-3, Default: 2)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+M1 BRASS ULTRA - Ultimate Enhanced M1 Recreation
+
+The most advanced M1 brass/strings synthesizer!
+
+ULTRA ENHANCEMENTS vs. Standard M1 Brass:
+1. NOISE LAYER - White noise generator (per voice)
+2. ATTACK TRANSIENT - Wavetable burst at note start
+3. 4-BAND FORMANTS (vs 3-band) - Extra high formant
+4. 10-VOICE ENSEMBLE (vs 8-voice) - Wider stereo spread
+5. PITCH ENVELOPE - Upward swell / downward fall
+6. FILTER LFO - Formant wobble (vocal effect)
+7. STEREO WIDENING - Mid/Side processing + Haas
+8. 12 PATCHES (vs 8) - All originals + 4 new
+
+OSCILLATORS:
+- Dual oscillator system (Saw + Pulse)
+- 4-band formant filter (extra resonance!)
+- 10-voice ensemble mode (massive!)
+- Noise layer (breath/air simulation)
+- Attack transient layer (PCM-style)
+- Pitch envelope (swell/fall)
+- Filter LFO (movement)
+- Velocity layers (4 zones)
+- Vibrato with delay & fade-in
+- Stereo width control
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+PATCH parameter (0-11): 12 classic M1 patches
+- All original M1 patches + 4 new enhanced patches
+
+VOICES parameter (0-3): Ensemble voice count
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+ULTRA BRASS:
+- BRIGHT: 60% (moderate brightness)
+- RESONANCE: 75% (strong resonance)
+- ENSEMBLE: 40% (wide ensemble)
+- VIBRATO: 40% (smooth vibrato)
+- BREATH: 25% (subtle noise layer)
+- PATCH: 0 (Ultra Brass)
+
+MASSIVE STRINGS:
+- BRIGHT: 50% (warm)
+- RESONANCE: 80% (very resonant)
+- ENSEMBLE: 100% (maximum ensemble)
+- VOICES: 3 (10-voice mode)
+- PATCH: 1 (Ultra Strings)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: osc
+Unit ID: 0xDU
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

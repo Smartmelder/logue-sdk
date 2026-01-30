@@ -1,0 +1,21 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 66,
+        "version": "1.0-0",
+        "name": "GABBRKUTJE",
+        "num_param": 6,
+        "params": [
+            ["Distortion", 0, 100, "%"],
+            ["Mode", 0, 7, ""],
+            ["Pitch Env", 0, 100, "%"],
+            ["Sub Osc", 0, 100, "%"],
+            ["Pump", 0, 100, "%"],
+            ["Rave", 0, 4, ""]
+        ]
+    }
+}
+

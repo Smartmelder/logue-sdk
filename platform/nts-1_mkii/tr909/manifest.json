@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 10,
+        "version": "1.0-0",
+        "name": "TR909",
+        "num_param": 10,
+        "params": [
+            ["Attack", 0, 100, "%"],
+            ["Decay", 0, 100, "%"],
+            ["Tone", 0, 100, "%"],
+            ["Punch", 0, 100, "%"],
+            ["Snap", 0, 100, "%"],
+            ["Metallic", 0, 100, "%"],
+            ["Noise", 0, 100, "%"],
+            ["Distortion", 0, 100, "%"],
+            ["Sound", 0, 11, ""],
+            ["Preset", 0, 7, ""]
+        ]
+    }
+}
+

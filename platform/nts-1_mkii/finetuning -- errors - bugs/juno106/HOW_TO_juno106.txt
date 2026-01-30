@@ -1,0 +1,92 @@
+═══════════════════════════════════════════════════════════════
+J106MEGA - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: osc (Oscillator)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in OSC menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select patch/preset
+- A knob (SHAPE): WAVE (Waveform)
+- B knob (ALT): FX (Effect selection)
+
+PARAMETER MENU:
+Hold OSC button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. WAVE - Waveform selection (Range: 0-1023, Default: 341)
+1. FX - Effect selection (Range: 0-1023, Default: 512)
+2. PW - Pulse Width (Range: 0-1023, Default: 512)
+3. DETUNE - Detune/Portamento amount (Range: 0-1023, Default: 409)
+4. SUB - Sub oscillator level (Range: 0-1023, Default: 614)
+5. HPF - High-pass filter (Range: 0-1023, Default: 102)
+6. LFO - LFO Rate (Range: 0-1023, Default: 256)
+7. LFODEP - LFO Depth (Range: 0-1023, Default: 307)
+8. MODE - Mode selection (Range: 0-15, Default: 5)
+9. FEAT - Features selection (Range: 0-15, Default: 2)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+JUNO-106 MEGA EDITION - Complete recreation with ALL features
+
+Complete Juno-106 synthesizer recreation including:
+- Multiple waveforms (Saw, Square, Pulse)
+- Chorus I & II effects
+- Ring modulation
+- Noise generator
+- Sub oscillator
+- High-pass filter
+- LFO modulation
+- Portamento/Glide
+- Chord stacking
+- 16-step sequencer
+- Arpeggiator (8 patterns)
+- Velocity sensitivity
+- PolyBLEP anti-aliasing
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+MODE parameter (0-15): Various operational modes
+FEAT parameter (0-15): Feature combinations
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+CLASSIC JUNO BASS:
+- WAVE: 33% (sawtooth)
+- FX: 50% (Chorus I)
+- SUB: 60% (sub oscillator)
+- HPF: 10% (low high-pass)
+- LFO: 25% (slow LFO)
+
+BRIGHT LEAD:
+- WAVE: 50% (square)
+- FX: 70% (Chorus II)
+- DETUNE: 40% (slight detune)
+- HPF: 30% (bright filter)
+- LFODEP: 50% (moderate LFO depth)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: osc
+Unit ID: 0x0U
+Version: 2.0-0
+
+═══════════════════════════════════════════════════════════════
+

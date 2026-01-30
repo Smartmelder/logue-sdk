@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 2,
+        "version": "1.0-0",
+        "name": "PANTREM",
+        "num_param": 10,
+        "params": [
+            ["Rate", 0, 100, "%"],
+            ["Depth", 0, 100, "%"],
+            ["Width", 0, 100, "%"],
+            ["Phase", 0, 100, "%"],
+            ["Tremolo", 0, 100, "%"],
+            ["Pan", 0, 100, "%"],
+            ["Wave", 0, 7, ""],
+            ["Sync", 0, 1, ""],
+            ["Division", 0, 7, ""],
+            ["Mode", 0, 3, ""]
+        ]
+    }
+}
+

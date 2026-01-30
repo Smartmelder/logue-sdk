@@ -1,0 +1,24 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 20,
+        "version": "1.0-0",
+        "name": "M1 BRASS ULTRA",
+        "num_param": 10,
+        "params": [
+            ["Bright", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Ensemble", 0, 100, "%"],
+            ["Vibrato", 0, 100, "%"],
+            ["Attack", 0, 100, "%"],
+            ["Release", 0, 100, "%"],
+            ["Voices", 1, 8, ""],
+            ["Patch", 0, 11, ""],
+            ["Width", 0, 100, "%"]
+        ]
+    }
+}

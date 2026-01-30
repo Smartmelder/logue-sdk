@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 7,
+        "version": "1.0-0",
+        "name": "ORCHHIT",
+        "num_param": 10,
+        "params": [
+            ["Orchestra Size", 0, 100, "%"],
+            ["Sample Grit", 0, 100, "%"],
+            ["Impact Level", 0, 100, "%"],
+            ["Release Time", 0, 100, "%"],
+            ["Brass Level", 0, 100, "%"],
+            ["Strings Level", 0, 100, "%"],
+            ["Timbre Shift", 0, 100, "%"],
+            ["Vintage Amount", 0, 100, "%"],
+            ["Preset", 0, 7, ""],
+            ["Voices", 0, 3, ""]
+        ]
+    }
+}
+

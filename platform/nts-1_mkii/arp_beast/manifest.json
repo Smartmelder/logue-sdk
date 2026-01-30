@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 10,
+        "version": "1.0-0",
+        "name": "ARP BEAST",
+        "num_param": 10,
+        "params": [
+            ["Pattern", 0, 15, ""],
+            ["Octaves", 1, 4, ""],
+            ["Swing", 0, 100, "%"],
+            ["Gate", 0, 100, "%"],
+            ["Accent", 0, 100, "%"],
+            ["Probability", 0, 100, "%"],
+            ["Harmony", 0, 7, ""],
+            ["Tempo Mult", 0, 7, ""],
+            ["Randomize", 0, 100, "%"],
+            ["Mix", 0, 100, "%"]
+        ]
+    }
+}
+

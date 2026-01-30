@@ -1,0 +1,74 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 18,
+        "version": "1.0-0",
+        "name": "ETERNALK",
+        "num_param": 10,
+        "params": [
+            [
+                "Direction",
+                0,
+                2,
+                ""
+            ],
+            [
+                "Rate",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Depth",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Feedback",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Mix",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Stereo",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Tone",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Smooth",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Stages",
+                2,
+                4,
+                ""
+            ],
+            [
+                "Resonate",
+                0,
+                100,
+                "%"
+            ]
+        ]
+    }
+}

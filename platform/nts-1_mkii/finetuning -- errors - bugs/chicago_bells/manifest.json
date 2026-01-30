@@ -1,0 +1,23 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 19,
+        "version": "3.0-0",
+        "name": "CHICAGO BELLS",
+        "num_param": 9,
+        "params": [
+            ["Tone", 0, 100, "%"],
+            ["Decay", 0, 100, "%"],
+            ["Type", 0, 3, ""],
+            ["Strike", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Bite", 0, 100, "%"],
+            ["Ring", 0, 100, "%"],
+            ["Dirt", 0, 100, "%"],
+            ["Air", 0, 100, "%"]
+        ]
+    }
+}

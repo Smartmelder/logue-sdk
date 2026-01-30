@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "revfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 6,
+        "version": "1.0-0",
+        "name": "RANDREPT",
+        "num_param": 10,
+        "params": [
+            ["Density", 0, 100, "%"],
+            ["Chaos", 0, 100, "%"],
+            ["Mutate", 0, 100, "%"],
+            ["Grain Size", 0, 100, "%"],
+            ["Pitch", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Mode", 0, 7, ""],
+            ["Pattern", 0, 7, ""],
+            ["Freeze", 0, 1, ""]
+        ]
+    }
+}
+

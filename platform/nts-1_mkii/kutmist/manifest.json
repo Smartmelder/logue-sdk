@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "revfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 13,
+        "version": "1.0-0",
+        "name": "KUTMIST",
+        "num_param": 10,
+        "params": [
+            ["Pre-Delay", 0, 100, "%"],
+            ["Size", 0, 100, "%"],
+            ["Diffusion", 0, 100, "%"],
+            ["Decay", 0, 100, "%"],
+            ["Damping", 0, 100, "%"],
+            ["Low Cut", 0, 100, "%"],
+            ["High Cut", 0, 100, "%"],
+            ["Bass Boost", -100, 100, "%"],
+            ["Side Mode", 0, 100, "%"],
+            ["Early Level", 0, 100, "%"]
+        ]
+    }
+}
+

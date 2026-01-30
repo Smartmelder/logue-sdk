@@ -1,0 +1,712 @@
+/*
+    BREVER INSIDE OUT - Quantum Reverb Implementation
+    
+    ARCHITECTURE:
+    - 6 Comb filters (Freeverb-style)
+    - 8 Allpass filters (Schroeder diffusion)
+    - Granular grain cloud engine (16 grains)
+    - Shimmer pitch shifter (+12 semitones)
+    - Multi-tap delay network
+    - Dynamic envelope follower
+    - LFO modulation matrix
+    
+    ALGORITHMS:
+    - Freeverb (Jezar at Dreampoint)
+    - Dattorro Reverb (1997)
+    - Granular Synthesis techniques
+    - Spectral freezing
+    
+    OPTIMIZATIONS:
+    - Safe feedback limits (max 0.93)
+    - Soft clipping throughout
+    - Denormal prevention
+    - Efficient buffer usage
+*/
+
+#include "unit_revfx.h"
+#include "utils/float_math.h"
+#include "utils/int_math.h"
+#include "utils/buffer_ops.h"
+#include "fx_api.h"
+#include <algorithm>
+
+// ========== CONFIGURATION ==========
+
+#define NUM_COMBS 6
+#define NUM_ALLPASS 8
+#define NUM_GRAINS 16
+#define NUM_TAPS 8
+
+#define PREDELAY_SIZE 24000   // 500ms @ 48kHz
+#define GRAIN_BUFFER_SIZE 48000  // 1 second
+#define SHIMMER_BUFFER_SIZE 2048
+
+// ========== PRIME NUMBER DELAYS ==========
+
+// Comb delays (tuned for natural reverb)
+static const uint32_t s_comb_delays[NUM_COMBS] = {
+    1557, 1617, 1491, 1422, 1277, 1356
+};
+
+// Allpass delays (diffusion network)
+static const uint32_t s_allpass_delays[NUM_ALLPASS] = {
+    225, 341, 441, 556, 225, 341, 441, 556
+};
+
+// ========== FILTER STRUCTURES ==========
+
+struct CombFilter {
+    uint32_t write_pos;
+    uint32_t delay_length;
+    float feedback;
+    float damp_z1;
+    float damp_coeff;
+    float *buffer;
+};
+
+struct AllpassFilter {
+    uint32_t write_pos;
+    uint32_t delay_length;
+    float feedback;
+    float *buffer;
+};
+
+struct Grain {
+    float pos;           // Current position in buffer
+    float speed;         // Playback speed
+    float amp;           // Amplitude envelope
+    float pan;           // Stereo position
+    uint32_t length;     // Grain length in samples
+    uint32_t age;        // Current age
+    bool active;
+};
+
+struct ShimmerEngine {
+    float buffer[SHIMMER_BUFFER_SIZE];
+    uint32_t write_pos;
+    float read_pos;
+};
+
+// ========== GLOBAL STATE ==========
+
+static CombFilter s_combs_l[NUM_COMBS];
+static CombFilter s_combs_r[NUM_COMBS];
+static AllpassFilter s_allpass_l[NUM_ALLPASS];
+static AllpassFilter s_allpass_r[NUM_ALLPASS];
+
+static float *s_predelay_buffer;
+static float *s_grain_buffer_l;
+static float *s_grain_buffer_r;
+
+static Grain s_grains[NUM_GRAINS];
+static ShimmerEngine s_shimmer_l, s_shimmer_r;
+
+static uint32_t s_predelay_write;
+static uint32_t s_grain_write;
+
+// ========== PARAMETERS ==========
+
+static float s_time;
+static float s_depth;
+static float s_mix;
+static float s_shimmer_amount;
+static float s_grain_density;
+static float s_motion_depth;
+static float s_space;
+static float s_duck_amount;
+static uint8_t s_mode;
+static bool s_freeze;
+
+// ========== MODULATION ==========
+
+static float s_lfo_phase;
+static float s_lfo_rate;
+
+// ========== ENVELOPE FOLLOWER ==========
+
+static float s_envelope;
+
+// ========== COUNTERS ==========
+
+static uint32_t s_sample_counter;
+static uint32_t s_grain_trigger_counter;
+
+// ========== RANDOM GENERATOR ==========
+
+static uint32_t s_random_seed = 12345;
+
+inline float random_float() {
+    s_random_seed ^= s_random_seed << 13;
+    s_random_seed ^= s_random_seed >> 17;
+    s_random_seed ^= s_random_seed << 5;
+    return (float)(s_random_seed % 10000) / 10000.f;
+}
+
+// ========== SAFE MATH ==========
+
+inline float safe_float(float x) {
+    if (x != x) return 0.f;  // NaN check
+    if (x > 1e10f || x < -1e10f) return 0.f;  // Inf check
+    if (si_fabsf(x) < 1e-15f) return 0.f;
+    return x;
+}
+
+inline float fast_tanh(float x) {
+    if (x < -3.f) return -1.f;
+    if (x > 3.f) return 1.f;
+    float x2 = x * x;
+    return x * (27.f + x2) / (27.f + 9.f * x2);
+}
+
+inline float soft_clip(float x) {
+    if (x < -1.5f) return -1.f;
+    if (x > 1.5f) return 1.f;
+    return fast_tanh(x * 0.5f) * 2.f;
+}
+
+// ========== COMB FILTER ==========
+
+inline float comb_process(CombFilter *cf, float input) {
+    uint32_t read_pos = (cf->write_pos + 1) % cf->delay_length;
+    float delayed = cf->buffer[read_pos];
+    
+    // One-pole lowpass damping
+    cf->damp_z1 = cf->damp_z1 + cf->damp_coeff * (delayed - cf->damp_z1);
+    
+    // Feedback with soft clipping
+    float fb_signal = soft_clip(cf->damp_z1 * cf->feedback);
+    
+    cf->buffer[cf->write_pos] = safe_float(input + fb_signal);
+    cf->write_pos = (cf->write_pos + 1) % cf->delay_length;
+    
+    return delayed;
+}
+
+// ========== ALLPASS FILTER ==========
+
+inline float allpass_process(AllpassFilter *ap, float input) {
+    uint32_t read_pos = (ap->write_pos + 1) % ap->delay_length;
+    float delayed = ap->buffer[read_pos];
+    
+    float output = -input + delayed;
+    
+    // Safe feedback
+    float fb = clipminmaxf(0.3f, ap->feedback, 0.65f);
+    ap->buffer[ap->write_pos] = safe_float(input + delayed * fb);
+    
+    ap->write_pos = (ap->write_pos + 1) % ap->delay_length;
+    
+    return output;
+}
+
+// ========== SHIMMER PITCH SHIFTER ==========
+
+inline float shimmer_process(ShimmerEngine *shimmer, float input) {
+    // Write input
+    shimmer->buffer[shimmer->write_pos] = input;
+    shimmer->write_pos = (shimmer->write_pos + 1) % SHIMMER_BUFFER_SIZE;
+    
+    // Read at 2x speed (1 octave up)
+    shimmer->read_pos += 2.f;
+    if (shimmer->read_pos >= (float)SHIMMER_BUFFER_SIZE) {
+        shimmer->read_pos -= (float)SHIMMER_BUFFER_SIZE;
+    }
+    
+    // Linear interpolation
+    uint32_t idx0 = (uint32_t)shimmer->read_pos;
+    uint32_t idx1 = (idx0 + 1) % SHIMMER_BUFFER_SIZE;
+    float frac = shimmer->read_pos - (float)idx0;
+    
+    float sample = shimmer->buffer[idx0] * (1.f - frac) + shimmer->buffer[idx1] * frac;
+    
+    // Hanning window to prevent clicks
+    float phase = shimmer->read_pos / (float)SHIMMER_BUFFER_SIZE;
+    float window = 0.5f - 0.5f * fx_cosf(phase * 2.f);
+    
+    return sample * window;
+}
+
+// ========== GRAIN TRIGGER ==========
+
+inline void trigger_grain() {
+    // Find inactive grain
+    for (uint8_t i = 0; i < NUM_GRAINS; i++) {
+        if (!s_grains[i].active) {
+            s_grains[i].active = true;
+            s_grains[i].pos = random_float() * (float)GRAIN_BUFFER_SIZE;
+            s_grains[i].speed = 0.5f + random_float() * 1.5f;  // 0.5x to 2x
+            s_grains[i].length = 1200 + (uint32_t)(random_float() * 2400.f);  // 25-75ms
+            s_grains[i].age = 0;
+            s_grains[i].amp = 0.3f + random_float() * 0.3f;
+            s_grains[i].pan = random_float() * 2.f - 1.f;  // -1 to +1
+            break;
+        }
+    }
+}
+
+// ========== GRAIN PROCESSING ==========
+
+inline void process_grains(float *out_l, float *out_r) {
+    *out_l = 0.f;
+    *out_r = 0.f;
+    
+    for (uint8_t i = 0; i < NUM_GRAINS; i++) {
+        if (s_grains[i].active) {
+            // Read from grain buffer
+            uint32_t read_pos = (uint32_t)s_grains[i].pos % GRAIN_BUFFER_SIZE;
+            float sample_l = s_grain_buffer_l[read_pos];
+            float sample_r = s_grain_buffer_r[read_pos];
+            
+            // Hanning envelope
+            float env_phase = (float)s_grains[i].age / (float)s_grains[i].length;
+            float env = 0.5f - 0.5f * fx_cosf(env_phase);
+            
+            // Apply envelope and amplitude
+            sample_l *= env * s_grains[i].amp;
+            sample_r *= env * s_grains[i].amp;
+            
+            // Stereo panning
+            float pan_l = (s_grains[i].pan < 0.f) ? 1.f : (1.f - s_grains[i].pan);
+            float pan_r = (s_grains[i].pan > 0.f) ? 1.f : (1.f + s_grains[i].pan);
+            
+            *out_l += sample_l * pan_l;
+            *out_r += sample_r * pan_r;
+            
+            // Advance grain
+            s_grains[i].pos += s_grains[i].speed;
+            s_grains[i].age++;
+            
+            // Deactivate when done
+            if (s_grains[i].age >= s_grains[i].length) {
+                s_grains[i].active = false;
+            }
+        }
+    }
+    
+    // Normalize output
+    *out_l *= 0.3f;
+    *out_r *= 0.3f;
+}
+
+// ========== ENVELOPE FOLLOWER ==========
+
+inline float envelope_follower(float input_l, float input_r) {
+    float abs_input = (si_fabsf(input_l) + si_fabsf(input_r)) * 0.5f;
+    
+    float attack = 0.01f;
+    float release = 0.001f;
+    
+    if (abs_input > s_envelope) {
+        s_envelope += (abs_input - s_envelope) * attack;
+    } else {
+        s_envelope += (abs_input - s_envelope) * release;
+    }
+    
+    return s_envelope;
+}
+
+// ========== INITIALIZATION ==========
+
+__unit_callback int8_t unit_init(const unit_runtime_desc_t *desc)
+{
+    if (!desc) return k_unit_err_undef;
+    if (desc->target != unit_header.target) return k_unit_err_target;
+    if (!UNIT_API_IS_COMPAT(desc->api)) return k_unit_err_api_version;
+    if (desc->samplerate != 48000) return k_unit_err_samplerate;
+    if (desc->input_channels != 2 || desc->output_channels != 2) return k_unit_err_geometry;
+    
+    if (!desc->hooks.sdram_alloc) return k_unit_err_memory;
+    
+    // Calculate buffer sizes
+    uint32_t max_comb_size = 0;
+    for (int i = 0; i < NUM_COMBS; i++) {
+        if (s_comb_delays[i] > max_comb_size) max_comb_size = s_comb_delays[i];
+    }
+    max_comb_size = (uint32_t)((float)max_comb_size * 3.f);  // Room for SIZE scaling
+    
+    uint32_t max_allpass_size = 0;
+    for (int i = 0; i < NUM_ALLPASS; i++) {
+        if (s_allpass_delays[i] > max_allpass_size) max_allpass_size = s_allpass_delays[i];
+    }
+    max_allpass_size = (uint32_t)((float)max_allpass_size * 2.f);
+    
+    // Total memory needed
+    uint32_t total_size = 0;
+    total_size += NUM_COMBS * max_comb_size * sizeof(float) * 2;  // L+R
+    total_size += NUM_ALLPASS * max_allpass_size * sizeof(float) * 2;  // L+R
+    total_size += PREDELAY_SIZE * sizeof(float);
+    total_size += GRAIN_BUFFER_SIZE * sizeof(float) * 2;  // L+R
+    
+    // Allocate SDRAM
+    uint8_t *buffer_base = static_cast<uint8_t *>(desc->hooks.sdram_alloc(total_size));
+    if (!buffer_base) return k_unit_err_memory;
+    
+    uint32_t offset = 0;
+    
+    // Comb buffers (L)
+    float *comb_buf_l = reinterpret_cast<float *>(buffer_base + offset);
+    offset += NUM_COMBS * max_comb_size * sizeof(float);
+    
+    // Comb buffers (R)
+    float *comb_buf_r = reinterpret_cast<float *>(buffer_base + offset);
+    offset += NUM_COMBS * max_comb_size * sizeof(float);
+    
+    // Allpass buffers (L)
+    float *allpass_buf_l = reinterpret_cast<float *>(buffer_base + offset);
+    offset += NUM_ALLPASS * max_allpass_size * sizeof(float);
+    
+    // Allpass buffers (R)
+    float *allpass_buf_r = reinterpret_cast<float *>(buffer_base + offset);
+    offset += NUM_ALLPASS * max_allpass_size * sizeof(float);
+    
+    // Predelay buffer
+    s_predelay_buffer = reinterpret_cast<float *>(buffer_base + offset);
+    offset += PREDELAY_SIZE * sizeof(float);
+    
+    // Grain buffers
+    s_grain_buffer_l = reinterpret_cast<float *>(buffer_base + offset);
+    offset += GRAIN_BUFFER_SIZE * sizeof(float);
+    
+    s_grain_buffer_r = reinterpret_cast<float *>(buffer_base + offset);
+    offset += GRAIN_BUFFER_SIZE * sizeof(float);
+    
+    // Clear all buffers
+    buf_clr_f32(comb_buf_l, NUM_COMBS * max_comb_size);
+    buf_clr_f32(comb_buf_r, NUM_COMBS * max_comb_size);
+    buf_clr_f32(allpass_buf_l, NUM_ALLPASS * max_allpass_size);
+    buf_clr_f32(allpass_buf_r, NUM_ALLPASS * max_allpass_size);
+    buf_clr_f32(s_predelay_buffer, PREDELAY_SIZE);
+    buf_clr_f32(s_grain_buffer_l, GRAIN_BUFFER_SIZE);
+    buf_clr_f32(s_grain_buffer_r, GRAIN_BUFFER_SIZE);
+    
+    // Initialize comb filters
+    uint32_t comb_offset = 0;
+    for (int i = 0; i < NUM_COMBS; i++) {
+        s_combs_l[i].write_pos = 0;
+        s_combs_l[i].delay_length = s_comb_delays[i];
+        s_combs_l[i].feedback = 0.84f;
+        s_combs_l[i].damp_z1 = 0.f;
+        s_combs_l[i].damp_coeff = 0.3f;
+        s_combs_l[i].buffer = comb_buf_l + comb_offset;
+        
+        s_combs_r[i].write_pos = 0;
+        s_combs_r[i].delay_length = s_comb_delays[i] + 23;  // Stereo offset
+        s_combs_r[i].feedback = 0.84f;
+        s_combs_r[i].damp_z1 = 0.f;
+        s_combs_r[i].damp_coeff = 0.3f;
+        s_combs_r[i].buffer = comb_buf_r + comb_offset;
+        
+        comb_offset += max_comb_size;
+    }
+    
+    // Initialize allpass filters
+    uint32_t allpass_offset = 0;
+    for (int i = 0; i < NUM_ALLPASS; i++) {
+        s_allpass_l[i].write_pos = 0;
+        s_allpass_l[i].delay_length = s_allpass_delays[i];
+        s_allpass_l[i].feedback = 0.5f;
+        s_allpass_l[i].buffer = allpass_buf_l + allpass_offset;
+        
+        s_allpass_r[i].write_pos = 0;
+        s_allpass_r[i].delay_length = s_allpass_delays[i] + 17;
+        s_allpass_r[i].feedback = 0.5f;
+        s_allpass_r[i].buffer = allpass_buf_r + allpass_offset;
+        
+        allpass_offset += max_allpass_size;
+    }
+    
+    // Initialize shimmer engines
+    std::fill(s_shimmer_l.buffer, s_shimmer_l.buffer + SHIMMER_BUFFER_SIZE, 0.f);
+    std::fill(s_shimmer_r.buffer, s_shimmer_r.buffer + SHIMMER_BUFFER_SIZE, 0.f);
+    s_shimmer_l.write_pos = 0;
+    s_shimmer_r.write_pos = 0;
+    s_shimmer_l.read_pos = 0.f;
+    s_shimmer_r.read_pos = 0.f;
+    
+    // Initialize grains
+    for (uint8_t i = 0; i < NUM_GRAINS; i++) {
+        s_grains[i].active = false;
+        s_grains[i].pos = 0.f;
+        s_grains[i].speed = 1.f;
+        s_grains[i].amp = 0.f;
+        s_grains[i].pan = 0.f;
+        s_grains[i].length = 0;
+        s_grains[i].age = 0;
+    }
+    
+    // Initialize counters
+    s_predelay_write = 0;
+    s_grain_write = 0;
+    s_sample_counter = 0;
+    s_grain_trigger_counter = 0;
+    
+    // Initialize parameters
+    s_time = 0.6f;
+    s_depth = 0.5f;
+    s_mix = 0.5f;
+    s_shimmer_amount = 0.f;
+    s_grain_density = 0.3f;
+    s_motion_depth = 0.25f;
+    s_space = 0.5f;
+    s_duck_amount = 0.f;
+    s_mode = 0;
+    s_freeze = false;
+    
+    // Initialize modulation
+    s_lfo_phase = 0.f;
+    s_lfo_rate = 0.5f;
+    
+    // Initialize envelope
+    s_envelope = 0.f;
+    
+    return k_unit_err_none;
+}
+
+__unit_callback void unit_teardown() {}
+
+__unit_callback void unit_reset()
+{
+    for (int i = 0; i < NUM_COMBS; i++) {
+        s_combs_l[i].write_pos = 0;
+        s_combs_l[i].damp_z1 = 0.f;
+        s_combs_r[i].write_pos = 0;
+        s_combs_r[i].damp_z1 = 0.f;
+    }
+    
+    for (int i = 0; i < NUM_ALLPASS; i++) {
+        s_allpass_l[i].write_pos = 0;
+        s_allpass_r[i].write_pos = 0;
+    }
+    
+    s_predelay_write = 0;
+    s_grain_write = 0;
+    s_lfo_phase = 0.f;
+    s_envelope = 0.f;
+}
+
+__unit_callback void unit_resume() {}
+__unit_callback void unit_suspend() {}
+
+// ========== MAIN PROCESSING ==========
+
+__unit_callback void unit_render(const float *in, float *out, uint32_t frames)
+{
+    for (uint32_t f = 0; f < frames; f++) {
+        float in_l = in[f * 2];
+        float in_r = in[f * 2 + 1];
+        
+        // Update envelope follower
+        float env = envelope_follower(in_l, in_r);
+        
+        // Update LFO
+        s_lfo_phase += (s_lfo_rate * s_motion_depth * 3.f) / 48000.f;
+        if (s_lfo_phase >= 1.f) s_lfo_phase -= 1.f;
+        
+        float lfo = fx_sinf(s_lfo_phase);
+        
+        // ========== PREDELAY ==========
+        
+        float mono_in = (in_l + in_r) * 0.5f;
+        s_predelay_buffer[s_predelay_write] = mono_in;
+        
+        // Variable predelay time (20ms to 200ms)
+        uint32_t predelay_samples = 960 + (uint32_t)(s_space * 8640.f);
+        uint32_t predelay_read = (s_predelay_write + PREDELAY_SIZE - predelay_samples) % PREDELAY_SIZE;
+        
+        float predelayed = s_predelay_buffer[predelay_read];
+        
+        s_predelay_write = (s_predelay_write + 1) % PREDELAY_SIZE;
+        
+        // ========== MODE-SPECIFIC PROCESSING ==========
+        
+        float reverb_input = predelayed;
+        
+        switch (s_mode) {
+            case 0:  // QUANTUM (standard)
+                break;
+                
+            case 1:  // SHIMMER (pitch up)
+                if (s_shimmer_amount > 0.01f) {
+                    float shimmer_l = shimmer_process(&s_shimmer_l, reverb_input);
+                    float shimmer_r = shimmer_process(&s_shimmer_r, reverb_input);
+                    reverb_input = reverb_input * (1.f - s_shimmer_amount) + 
+                                   (shimmer_l + shimmer_r) * 0.5f * s_shimmer_amount;
+                }
+                break;
+                
+            case 2: {  // CLOUD (granular)
+                // Trigger grains based on density
+                s_grain_trigger_counter++;
+                uint32_t trigger_interval = 240 - (uint32_t)(s_grain_density * 200.f);
+                if (s_grain_trigger_counter >= trigger_interval) {
+                    trigger_grain();
+                    s_grain_trigger_counter = 0;
+                }
+                break;
+            }
+                
+            case 3: {  // FREEZE (spectral hold)
+                if (s_freeze) {
+                    reverb_input = 0.f;  // Stop new input
+                }
+                break;
+            }
+                
+            case 4: {  // SWELL (ducking)
+                {
+                    float duck_env = 1.f - env * s_duck_amount;
+                    reverb_input *= clipminmaxf(0.2f, duck_env, 1.f);
+                }
+                break;
+            }
+                
+            case 5: {  // CHAOS (modulated everything)
+                {
+                    float chaos = lfo * s_motion_depth * 2.f;
+                    reverb_input *= (1.f + chaos * 0.3f);
+                }
+                break;
+            }
+        }
+        
+        // ========== COMB FILTER BANK ==========
+        
+        float comb_out_l = 0.f;
+        float comb_out_r = 0.f;
+        
+        for (int i = 0; i < NUM_COMBS; i++) {
+            // Modulate feedback with LFO
+            float fb_mod = 1.f + lfo * s_motion_depth * 0.1f;
+            float fb = (0.7f + s_time * 0.23f) * fb_mod;
+            
+            s_combs_l[i].feedback = clipminmaxf(0.1f, fb, 0.93f);  // SAFE LIMIT!
+            s_combs_r[i].feedback = clipminmaxf(0.1f, fb, 0.93f);
+            
+            // Adaptive damping (more at high feedback)
+            float damp = 0.2f + (1.f - s_space) * 0.5f;
+            damp += fb * 0.2f;  // Increase damping with feedback
+            s_combs_l[i].damp_coeff = clipminmaxf(0.1f, damp, 0.8f);
+            s_combs_r[i].damp_coeff = clipminmaxf(0.1f, damp, 0.8f);
+            
+            comb_out_l += comb_process(&s_combs_l[i], reverb_input);
+            comb_out_r += comb_process(&s_combs_r[i], reverb_input);
+        }
+        
+        comb_out_l /= (float)NUM_COMBS;
+        comb_out_r /= (float)NUM_COMBS;
+        
+        // ========== ALLPASS DIFFUSION ==========
+        
+        for (int i = 0; i < NUM_ALLPASS; i++) {
+            // Modulate diffusion with LFO
+            float diff_mod = 1.f + lfo * s_motion_depth * 0.05f;
+            s_allpass_l[i].feedback = (0.4f + s_space * 0.25f) * diff_mod;
+            s_allpass_r[i].feedback = (0.4f + s_space * 0.25f) * diff_mod;
+            
+            comb_out_l = allpass_process(&s_allpass_l[i], comb_out_l);
+            comb_out_r = allpass_process(&s_allpass_r[i], comb_out_r);
+        }
+        
+        // ========== GRANULAR CLOUD (MODE 2) ==========
+        
+        // Write to grain buffer
+        s_grain_buffer_l[s_grain_write] = comb_out_l;
+        s_grain_buffer_r[s_grain_write] = comb_out_r;
+        s_grain_write = (s_grain_write + 1) % GRAIN_BUFFER_SIZE;
+        
+        float grain_l = 0.f, grain_r = 0.f;
+        
+        if (s_mode == 2 && s_grain_density > 0.01f) {
+            process_grains(&grain_l, &grain_r);
+            
+            // Mix grains with reverb
+            comb_out_l = comb_out_l * (1.f - s_grain_density * 0.5f) + grain_l * s_grain_density;
+            comb_out_r = comb_out_r * (1.f - s_grain_density * 0.5f) + grain_r * s_grain_density;
+        }
+        
+        // ========== OUTPUT STAGE ==========
+        
+        // Apply depth
+        float wet_l = comb_out_l * s_depth;
+        float wet_r = comb_out_r * s_depth;
+        
+        // Soft clip wet signals
+        wet_l = soft_clip(wet_l);
+        wet_r = soft_clip(wet_r);
+        
+        // Mix dry/wet
+        float dry_wet = (s_mix + 1.f) * 0.5f;
+        out[f * 2] = in_l * (1.f - dry_wet) + wet_l * dry_wet;
+        out[f * 2 + 1] = in_r * (1.f - dry_wet) + wet_r * dry_wet;
+        
+        // Final limiting
+        out[f * 2] = clipminmaxf(-1.f, out[f * 2], 1.f);
+        out[f * 2 + 1] = clipminmaxf(-1.f, out[f * 2 + 1], 1.f);
+        
+        s_sample_counter++;
+    }
+}
+
+// ========== PARAMETER UPDATES ==========
+
+__unit_callback void unit_set_param_value(uint8_t id, int32_t value)
+{
+    value = clipminmaxi32(unit_header.params[id].min, value, unit_header.params[id].max);
+    const float valf = param_val_to_f32(value);
+    
+    switch (id) {
+        case 0: s_time = valf; break;
+        case 1: s_depth = valf; break;
+        case 2: s_mix = (float)value / 100.f; break;
+        case 3: s_shimmer_amount = valf; break;
+        case 4: s_grain_density = valf; break;
+        case 5: s_motion_depth = valf; break;
+        case 6: s_space = valf; break;
+        case 7: s_duck_amount = valf; break;
+        case 8: s_mode = value; break;
+        case 9: s_freeze = (value != 0); break;
+        default: break;
+    }
+}
+
+__unit_callback int32_t unit_get_param_value(uint8_t id)
+{
+    switch (id) {
+        case 0: return (int32_t)(s_time * 1023.f);
+        case 1: return (int32_t)(s_depth * 1023.f);
+        case 2: return (int32_t)(s_mix * 100.f);
+        case 3: return (int32_t)(s_shimmer_amount * 1023.f);
+        case 4: return (int32_t)(s_grain_density * 1023.f);
+        case 5: return (int32_t)(s_motion_depth * 1023.f);
+        case 6: return (int32_t)(s_space * 1023.f);
+        case 7: return (int32_t)(s_duck_amount * 1023.f);
+        case 8: return s_mode;
+        case 9: return s_freeze ? 1 : 0;
+        default: return 0;
+    }
+}
+
+__unit_callback const char *unit_get_param_str_value(uint8_t id, int32_t value)
+{
+    if (id == 8) {  // MODE
+        static const char *mode_names[] = {
+            "QUANTUM", "SHIMMER", "CLOUD", "FREEZE", "SWELL", "CHAOS"
+        };
+        if (value >= 0 && value < 6) return mode_names[value];
+    }
+    
+    if (id == 9) {  // FREEZE
+        return (value != 0) ? "ON" : "OFF";
+    }
+    
+    return "";
+}
+
+__unit_callback void unit_set_tempo(uint32_t tempo) {
+    (void)tempo;
+}
+
+__unit_callback void unit_tempo_4ppqn_tick(uint32_t counter) {
+    (void)counter;
+}
+

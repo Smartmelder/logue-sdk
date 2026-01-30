@@ -1,0 +1,651 @@
+# 🎛️ MULTIFX - Multi-Effect Modulation Unit
+
+**Complete handleiding voor de MULTIFX modulation effect**
+
+---
+
+## 📋 OVERZICHT
+
+**MULTIFX** is een krachtige multi-effect modulation unit met **8 effect modes** en **10 parameters** voor volledige controle. Perfect voor house, techno, gabber en alle elektronische muziek!
+
+### **FEATURES:**
+- ✅ **8 effect modes** (Chorus, Flanger, Phaser, Tremolo, Vibrato, AutoPan, RingMod, Combo)
+- ✅ **Tempo sync** (1/16 tot 1/1)
+- ✅ **4 LFO shapes** (Sine, Triangle, Saw, Square)
+- ✅ **Stereo widening** (0-200%)
+- ✅ **Mode morphing**
+- ✅ **Memory optimized** (<6KB buffers)
+
+---
+
+## 🎛️ PARAMETERS OVERZICHT
+
+### **PARAMETER 0: MODE** (Knop A)
+**8 effect modes:**
+- **0: CHORUS** - Thick pads/stabs (house)
+- **1: FLANGER** - Sweeping risers/snares
+- **2: PHASER** - Percussive movement
+- **3: TREMOLO** - Rhythmic pump
+- **4: VIBRATO** - Pitch wobble
+- **5: AUTOPAN** - Stereo groove
+- **6: RINGMOD** - Gabber metallic
+- **7: COMBO** - Multi-effect blend (Chorus + Phaser + AutoPan)
+
+**Gebruik:**
+- **CHORUS**: Voor dikke pads, stabs, leads
+- **FLANGER**: Voor risers, snares, sweeps
+- **PHASER**: Voor percussieve beweging
+- **TREMOLO**: Voor ritmische pumping
+- **VIBRATO**: Voor pitch wobble effecten
+- **AUTOPAN**: Voor stereo beweging
+- **RINGMOD**: Voor gabber/metallic sounds
+- **COMBO**: Voor complexe multi-effect sounds
+
+---
+
+### **PARAMETER 1: GAIN** (Knop B)
+**Volume/Gain control (0-100%)**
+
+**Default:** 100% (volledig volume)
+
+**Gebruik:**
+- **0%**: Geen output
+- **50%**: Half volume
+- **100%**: Volledig volume
+- **Tip:** Gebruik voor volume automation of soft limiting
+
+---
+
+### **PARAMETER 2: DEPTH**
+**Modulation depth (0-100%)**
+
+**Default:** 40%
+
+**Gebruik:**
+- **0%**: Geen modulation (pass-through)
+- **25%**: Subtiele modulation
+- **50%**: Medium modulation
+- **75%**: Sterke modulation
+- **100%**: Maximum modulation
+
+**Per mode:**
+- **CHORUS/FLANGER**: Delay modulation depth
+- **PHASER**: Frequency sweep range
+- **TREMOLO**: Amplitude modulation depth
+- **VIBRATO**: Pitch modulation depth
+- **AUTOPAN**: Panning range
+- **RINGMOD**: Modulation mix
+- **COMBO**: Overall effect depth
+
+---
+
+### **PARAMETER 3: FEEDBACK**
+**Feedback amount (0-100%)**
+
+**Default:** 30%
+
+**Gebruik:**
+- **0%**: Geen feedback (clean)
+- **25%**: Subtiele feedback
+- **50%**: Medium feedback
+- **75%**: Sterke feedback
+- **100%**: Maximum feedback (kan instabiel worden!)
+
+**Per mode:**
+- **CHORUS**: Max 30% (veilig)
+- **FLANGER**: Max 70% (sweeping effect)
+- **PHASER**: Max 50% (resonance)
+- **TREMOLO/VIBRATO**: Niet gebruikt
+- **AUTOPAN**: Niet gebruikt
+- **RINGMOD**: Niet gebruikt
+
+**⚠️ WAARSCHUWING:** Hoge feedback kan instabiliteit veroorzaken!
+
+---
+
+### **PARAMETER 4: MIX**
+**Dry/Wet mix (0-100%)**
+
+**Default:** 50%
+
+**Gebruik:**
+- **0%**: Alleen dry signal (geen effect)
+- **25%**: Subtiel effect
+- **50%**: Balanced mix
+- **75%**: Sterk effect
+- **100%**: Alleen wet signal (alleen effect)
+
+**Tip:** Gebruik 30-50% voor subtiele effecten, 70-100% voor sterke effecten.
+
+---
+
+### **PARAMETER 5: SYNC**
+**Tempo sync (0-5)**
+
+**Opties:**
+- **0: OFF** - Free rate (0.5-8 Hz)
+- **1: 1/16** - 16e noten
+- **2: 1/8** - 8e noten
+- **3: 1/4** - Kwart noten
+- **4: 1/2** - Halve noten
+- **5: 1/1** - Hele noten
+
+**Gebruik:**
+- **OFF**: Voor vrije modulation rate
+- **1/16**: Voor snelle, ritmische effecten
+- **1/8**: Voor medium tempo effecten
+- **1/4**: Voor langzame sweeps
+- **1/2**: Voor zeer langzame beweging
+- **1/1**: Voor extreem langzame beweging
+
+**Tip:** Gebruik tempo sync voor ritmische effecten die perfect synced zijn met je track!
+
+---
+
+### **PARAMETER 6: SHAPE**
+**LFO shape (0-3)**
+
+**Opties:**
+- **0: SINE** - Vloeiende sinus golf
+- **1: TRI** - Driehoek golf
+- **2: SAW** - Zaagtand golf
+- **3: SQR** - Blok golf
+
+**Gebruik:**
+- **SINE**: Vloeiende, natuurlijke beweging (meest gebruikt)
+- **TRI**: Lineaire beweging
+- **SAW**: Scherpe opbouw
+- **SQR**: Harde switch (voor tremolo/autopan)
+
+**Per mode:**
+- **CHORUS/FLANGER/PHASER**: SINE of TRI voor vloeiende beweging
+- **TREMOLO**: SINE of SQR voor ritmische pump
+- **AUTOPAN**: SINE of TRI voor vloeiende panning
+- **VIBRATO**: SINE voor natuurlijke pitch wobble
+
+---
+
+### **PARAMETER 7: STEREO**
+**Stereo width (0-100% = 0-200%)**
+
+**Default:** 50% (100% width)
+
+**Gebruik:**
+- **0%**: Mono (geen stereo)
+- **25%**: Subtiele stereo
+- **50%**: Normale stereo (100% width)
+- **75%**: Brede stereo (150% width)
+- **100%**: Extreem breed (200% width)
+
+**Tip:** Gebruik hoge waarden voor brede, ruimtelijke effecten!
+
+---
+
+### **PARAMETER 8: COLOR**
+**Color/Tone control (0-100%)**
+
+**Default:** 50%
+
+**Gebruik:**
+- **RINGMOD mode**: Carrier frequency (20-2000 Hz)
+  - **0%**: 20 Hz (laag, donker)
+  - **50%**: 1010 Hz (midden)
+  - **100%**: 2000 Hz (hoog, helder)
+- **Andere modes**: Niet gebruikt (reserved)
+
+**Tip:** Experimenteer met COLOR in RINGMOD mode voor verschillende metallic timbres!
+
+---
+
+### **PARAMETER 9: MORPH**
+**Mode morphing (0-100%)**
+
+**Default:** 0%
+
+**Gebruik:**
+- **0%**: Geen morphing
+- **50%**: Medium morphing
+- **100%**: Maximum morphing
+
+**⚠️ NOTITIE:** Deze parameter is geïmplementeerd maar momenteel niet actief in alle modes.
+
+---
+
+## 🎹 EFFECT MODES IN DETAIL
+
+### **MODE 0: CHORUS**
+
+**Wat het doet:** Voegt dikte en ruimte toe door korte delay met LFO modulation.
+
+**Best voor:**
+- Pads
+- Stabs
+- Leads
+- Strings
+
+**Aanbevolen settings:**
+```
+DEPTH:    40-60%
+FEEDBACK: 20-30%
+MIX:      40-60%
+SYNC:     OFF of 1/8
+SHAPE:    SINE
+STEREO:   50-75%
+```
+
+**Tip:** Gebruik lage DEPTH (20-30%) voor subtiele dikte, hoge DEPTH (70-100%) voor extreme chorus effecten.
+
+---
+
+### **MODE 1: FLANGER**
+
+**Wat het doet:** Korte delay met hoge feedback voor sweeping "whoosh" effecten.
+
+**Best voor:**
+- Risers
+- Snares
+- Sweeps
+- Transitions
+
+**Aanbevolen settings:**
+```
+DEPTH:    50-80%
+FEEDBACK: 50-70% (hoge feedback!)
+MIX:      50-70%
+SYNC:     1/16 of 1/8
+SHAPE:    SINE of TRI
+STEREO:   50-75%
+```
+
+**Tip:** Hoge FEEDBACK (60-70%) geeft de klassieke flanger "whoosh" sound!
+
+---
+
+### **MODE 2: PHASER**
+
+**Wat het doet:** All-pass filters met LFO modulation voor "swooshing" effecten.
+
+**Best voor:**
+- Percussie
+- Leads
+- Pads
+- Funk sounds
+
+**Aanbevolen settings:**
+```
+DEPTH:    40-70%
+FEEDBACK: 30-50%
+MIX:      50-70%
+SYNC:     OFF of 1/8
+SHAPE:    SINE
+STEREO:   50-75%
+```
+
+**Tip:** PHASER werkt het beste op heldere, percussieve sounds!
+
+---
+
+### **MODE 3: TREMOLO**
+
+**Wat het doet:** Amplitude modulation voor ritmische "pumping" effecten.
+
+**Best voor:**
+- Rhythmic pumping
+- Vintage sounds
+- Organ sounds
+- Guitar
+
+**Aanbevolen settings:**
+```
+DEPTH:    50-80%
+FEEDBACK: Niet gebruikt
+MIX:      60-100%
+SYNC:     1/8 of 1/4
+SHAPE:    SINE of SQR
+STEREO:   0-50%
+```
+
+**Tip:** Gebruik SQR shape met tempo sync voor harde, ritmische pumping!
+
+---
+
+### **MODE 4: VIBRATO**
+
+**Wat het doet:** Pitch modulation door delay time modulation.
+
+**Best voor:**
+- Leads
+- Pads
+- Vintage sounds
+- Organ
+
+**Aanbevolen settings:**
+```
+DEPTH:    30-60%
+FEEDBACK: Niet gebruikt
+MIX:      50-70%
+SYNC:     OFF of 1/8
+SHAPE:    SINE
+STEREO:   50-75%
+```
+
+**Tip:** Lage DEPTH (20-30%) geeft subtiele vibrato, hoge DEPTH (70-100%) geeft extreme pitch wobble!
+
+---
+
+### **MODE 5: AUTOPAN**
+
+**Wat het doet:** Automatische stereo panning met LFO.
+
+**Best voor:**
+- Stereo beweging
+- Groove
+- Pads
+- Leads
+
+**Aanbevolen settings:**
+```
+DEPTH:    60-100%
+FEEDBACK: Niet gebruikt
+MIX:      70-100%
+SYNC:     1/8 of 1/4
+SHAPE:    SINE of TRI
+STEREO:   75-100%
+```
+
+**Tip:** Gebruik tempo sync voor ritmische panning die perfect synced is met je track!
+
+---
+
+### **MODE 6: RINGMOD**
+
+**Wat het doet:** Ring modulation met LFO carrier voor metallic, gabber sounds.
+
+**Best voor:**
+- Gabber
+- Metallic sounds
+- Experimental
+- Industrial
+
+**Aanbevolen settings:**
+```
+DEPTH:    50-100%
+FEEDBACK: Niet gebruikt
+MIX:      60-100%
+SYNC:     OFF
+SHAPE:    SINE
+COLOR:    30-70% (carrier frequency!)
+STEREO:   50-75%
+```
+
+**Tip:** Experimenteer met COLOR parameter voor verschillende carrier frequencies (20-2000 Hz)!
+
+---
+
+### **MODE 7: COMBO**
+
+**Wat het doet:** Multi-effect blend van Chorus → Phaser → AutoPan.
+
+**Best voor:**
+- Complexe effecten
+- Pads
+- Leads
+- Experimental
+
+**Aanbevolen settings:**
+```
+DEPTH:    40-70%
+FEEDBACK: 20-40%
+MIX:      60-80%
+SYNC:     OFF of 1/8
+SHAPE:    SINE
+STEREO:   75-100%
+```
+
+**Tip:** COMBO geeft een complex, gelaagd effect - perfect voor pads en leads!
+
+---
+
+## 🎵 PRESET IDEAS
+
+### **🔥 FAT CHORUS PAD**
+```
+MODE:     CHORUS
+GAIN:     100%
+DEPTH:    50%
+FEEDBACK: 25%
+MIX:      50%
+SYNC:     OFF
+SHAPE:    SINE
+STEREO:   75%
+```
+
+### **🌊 SWEEPING FLANGER**
+```
+MODE:     FLANGER
+GAIN:     100%
+DEPTH:    70%
+FEEDBACK: 60%
+MIX:      60%
+SYNC:     1/8
+SHAPE:    SINE
+STEREO:   50%
+```
+
+### **🎸 FUNK PHASER**
+```
+MODE:     PHASER
+GAIN:     100%
+DEPTH:    60%
+FEEDBACK: 40%
+MIX:      70%
+SYNC:     OFF
+SHAPE:    SINE
+STEREO:   50%
+```
+
+### **💥 RHYTHMIC TREMOLO**
+```
+MODE:     TREMOLO
+GAIN:     100%
+DEPTH:    70%
+FEEDBACK: 0%
+MIX:      80%
+SYNC:     1/8
+SHAPE:    SQR
+STEREO:   0%
+```
+
+### **🎹 VINTAGE VIBRATO**
+```
+MODE:     VIBRATO
+GAIN:     100%
+DEPTH:    40%
+FEEDBACK: 0%
+MIX:      60%
+SYNC:     OFF
+SHAPE:    SINE
+STEREO:   50%
+```
+
+### **🌊 WIDE AUTOPAN**
+```
+MODE:     AUTOPAN
+GAIN:     100%
+DEPTH:    80%
+FEEDBACK: 0%
+MIX:      100%
+SYNC:     1/4
+SHAPE:    SINE
+STEREO:   100%
+```
+
+### **🤖 GABBER RINGMOD**
+```
+MODE:     RINGMOD
+GAIN:     100%
+DEPTH:    80%
+FEEDBACK: 0%
+MIX:      80%
+SYNC:     OFF
+SHAPE:    SINE
+COLOR:    50%
+STEREO:   50%
+```
+
+### **✨ COMPLEX COMBO**
+```
+MODE:     COMBO
+GAIN:     100%
+DEPTH:    60%
+FEEDBACK: 30%
+MIX:      70%
+SYNC:     OFF
+SHAPE:    SINE
+STEREO:   100%
+```
+
+---
+
+## 🎛️ WORKFLOW TIPS
+
+### **1. Start met MODE selectie**
+- Kies het effect mode dat past bij je sound
+- CHORUS voor dikte, FLANGER voor sweeps, etc.
+
+### **2. Stel DEPTH in**
+- Begin met 40-50% en pas aan naar smaak
+- Lage DEPTH = subtiel, hoge DEPTH = extreem
+
+### **3. Pas FEEDBACK aan (waar van toepassing)**
+- CHORUS/FLANGER/PHASER: 20-50% voor subtiel, 60-70% voor extreem
+- TREMOLO/VIBRATO/AUTOPAN: Niet gebruikt
+
+### **4. Stel MIX in**
+- 30-50% voor subtiele effecten
+- 70-100% voor sterke effecten
+
+### **5. Gebruik tempo SYNC**
+- Zet SYNC aan voor ritmische effecten
+- 1/16 voor snel, 1/4 voor langzaam
+
+### **6. Experimenteer met SHAPE**
+- SINE voor vloeiend
+- SQR voor hard/ritmisch
+
+### **7. Pas STEREO aan**
+- 50-75% voor normale stereo
+- 100% voor extreme stereo width
+
+---
+
+## ⚠️ TROUBLESHOOTING
+
+### **Probleem: Geen geluid**
+- **Oplossing:** Check GAIN parameter (moet > 0%)
+- **Oplossing:** Check MIX parameter (moet > 0%)
+- **Oplossing:** Check of er input signal is
+
+### **Probleem: Instabiliteit/feedback loop**
+- **Oplossing:** Verlaag FEEDBACK parameter
+- **Oplossing:** Verlaag DEPTH parameter
+- **Oplossing:** Verlaag MIX parameter
+
+### **Probleem: Te luid/vervorming**
+- **Oplossing:** Verlaag GAIN parameter
+- **Oplossing:** Verlaag MIX parameter
+
+### **Probleem: Effect te subtiel**
+- **Oplossing:** Verhoog DEPTH parameter
+- **Oplossing:** Verhoog MIX parameter
+- **Oplossing:** Verhoog FEEDBACK (waar van toepassing)
+
+---
+
+## 🎯 QUICK REFERENCE
+
+### **Parameter Mapping:**
+- **Knop A (MOD held):** MODE
+- **Knop B (MOD held):** GAIN
+- **Shift + Knop A:** DEPTH
+- **Shift + Knop B:** FEEDBACK
+- **Andere parameters:** Via menu
+
+### **Effect Modes:**
+- **0:** CHORUS
+- **1:** FLANGER
+- **2:** PHASER
+- **3:** TREMOLO
+- **4:** VIBRATO
+- **5:** AUTOPAN
+- **6:** RINGMOD
+- **7:** COMBO
+
+### **Sync Divisions:**
+- **0:** OFF (free rate)
+- **1:** 1/16
+- **2:** 1/8
+- **3:** 1/4
+- **4:** 1/2
+- **5:** 1/1
+
+### **LFO Shapes:**
+- **0:** SINE
+- **1:** TRI
+- **2:** SAW
+- **3:** SQR
+
+---
+
+## 🚀 ADVANCED TIPS
+
+### **1. Layer Effects**
+Gebruik MULTIFX in combinatie met andere effects:
+- MULTIFX (CHORUS) → DELAY → REVERB
+- MULTIFX (PHASER) → FILTER → DISTORTION
+
+### **2. Automation**
+- Automate DEPTH voor dynamische effecten
+- Automate MIX voor build-ups
+- Automate SYNC voor tempo changes
+
+### **3. Stereo Techniques**
+- Gebruik hoge STEREO (75-100%) voor brede pads
+- Gebruik lage STEREO (0-25%) voor mono-compatibiliteit
+
+### **4. Tempo Sync Tricks**
+- 1/16 sync voor snelle, ritmische effecten
+- 1/4 sync voor langzame sweeps
+- Combineer met andere synced effects
+
+---
+
+## 📊 TECHNICAL SPECS
+
+- **Sample Rate:** 48 kHz
+- **Buffer Size:** ~7.5 KB (MAX_DELAY_SAMPLES * 2)
+- **Delay Range:** 1-20 ms
+- **LFO Rate:** 0.5-8 Hz (free) of tempo synced
+- **All-Pass Stages:** 4 (phaser)
+- **Memory Optimized:** <6KB buffers
+
+---
+
+## 🎹 FINAL NOTES
+
+**MULTIFX** is een krachtige, veelzijdige modulation effect unit die perfect is voor:
+- ✅ House music
+- ✅ Techno
+- ✅ Gabber
+- ✅ Ambient
+- ✅ Experimental
+- ✅ Alle elektronische muziek!
+
+**Experimenteer en geniet!** 🎛️✨
+
+---
+
+**Versie:** 1.0  
+**Datum:** 2024  
+**Platform:** NTS-1 mkII
+

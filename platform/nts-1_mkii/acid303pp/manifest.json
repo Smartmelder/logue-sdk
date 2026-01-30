@@ -1,0 +1,74 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 3,
+        "version": "2.0-0",
+        "name": "ACID303++",
+        "num_param": 10,
+        "params": [
+            [
+                "Cutoff",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Slide",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Resonance",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Env Amount",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Waveform",
+                0,
+                3,
+                ""
+            ],
+            [
+                "Amp Decay",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Flt Decay",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Distortion",
+                -100,
+                100,
+                "%"
+            ],
+            [
+                "Filter Mode",
+                0,
+                3,
+                ""
+            ],
+            [
+                "Sub Mix",
+                0,
+                100,
+                "%"
+            ],
+        ]
+    }
+}

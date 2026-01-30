@@ -1,0 +1,18 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "1.1-0",
+        "dev_id": 0,
+        "prg_id": 0,
+        "version": "1.0-0",
+        "name": "HyperChd",
+        "num_param": 3,
+        "params": [
+            ["Shape/Detune", 0, 100, "%"],
+            ["Chord Select", 0, 7, ""],
+            ["Sub Mix", 0, 100, "%"]
+        ]
+    }
+}
+

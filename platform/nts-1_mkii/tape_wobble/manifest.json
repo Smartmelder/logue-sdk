@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 4,
+        "version": "1.0-0",
+        "name": "TAPEWOB",
+        "num_param": 10,
+        "params": [
+            ["Wow", 0, 100, "%"],
+            ["Flutter", 0, 100, "%"],
+            ["Saturation", 0, 100, "%"],
+            ["Noise", 0, 100, "%"],
+            ["Compress", 0, 100, "%"],
+            ["Warble", 0, 100, "%"],
+            ["Age", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Tape Type", 0, 7, ""],
+            ["Speed", 0, 3, ""]
+        ]
+    }
+}
+

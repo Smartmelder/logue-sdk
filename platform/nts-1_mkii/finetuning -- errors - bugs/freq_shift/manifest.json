@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 3,
+        "version": "1.0-0",
+        "name": "FREQSHFT",
+        "num_param": 10,
+        "params": [
+            ["Shift", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Spread", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Distort", 0, 100, "%"],
+            ["Range", 0, 3, ""],
+            ["Direction", 0, 1, ""],
+            ["Mode", 0, 3, ""],
+            ["Stereo", 0, 1, ""]
+        ]
+    }
+}
+

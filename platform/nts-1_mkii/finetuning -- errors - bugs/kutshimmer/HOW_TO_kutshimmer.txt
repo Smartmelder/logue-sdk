@@ -1,0 +1,114 @@
+================================================================================
+KUTSHIMMER - SHIMMER/AMBIENT REVERB EFFECT
+================================================================================
+
+FEATURES:
+- 4 reverb modes (SHIMMER / REVERSE / CLOUD / INFINITE)
+- Octave-up pitch shifter for shimmer tails
+- 8× all-pass diffusion network
+- Modulation (chorus-like movement)
+- Tone filtering (dark → bright)
+- Pre-delay control
+- Sidechain ducking
+- Freeze/hold function
+- Perfect for house/techno intros, breakdowns, ambient layers
+
+================================================================================
+HARDWARE CONTROLS
+================================================================================
+
+TYPE KNOB (Knob A):
+  → Controls TYPE (reverb mode)
+  → SHIMMER: Octave-up emotional tails
+  → REVERSE: Swelling, reverse-like tails
+  → CLOUD: Dense, granular atmosphere
+  → INFINITE: Frozen, endless soundscapes
+
+SHAPE KNOB (Knob B):
+  → Controls TIME (decay length)
+  → Higher = longer decay
+
+================================================================================
+10 PARAMETERS
+================================================================================
+
+0. TYPE (TYPE knob)
+   Range: 0-3 (SHIMMER/REVERSE/CLOUD/INFINITE)
+   Default: 0 (SHIMMER)
+   Use: Reverb character mode
+   - 0: SHIMMER (octave-up tails, emotional)
+   - 1: REVERSE (swelling tails, pre-drop)
+   - 2: CLOUD (dense, granular atmosphere)
+   - 3: INFINITE (frozen, endless soundscapes)
+
+1. TIME (SHAPE knob)
+   Range: 0-100%
+   Default: 60%
+   Use: Decay length
+   - 0%: Short decay
+   - 50%: Medium decay
+   - 100%: Very long decay (near-infinite in INFINITE mode)
+
+2. SHIMMER
+   Range: 0-100%
+   Default: 50%
+   Use: Octave-up pitch shifter amount
+   - 0%: No pitch shifting
+   - 50%: Moderate shimmer
+   - 100%: Strong octave-up tails
+
+3. MIX
+   Range: 0-100%
+   Default: 50%
+   Use: Dry/wet balance
+   - 0%: Full dry
+   - 50%: Balanced
+   - 100%: Full wet
+
+4. MODRATE
+   Range: 0-100%
+   Default: 30%
+   Use: Modulation speed
+   - 0%: Very slow (0.1 Hz)
+   - 50%: Moderate (2.5 Hz)
+   - 100%: Fast (5 Hz)
+
+5. MODDPTH
+   Range: 0-100%
+   Default: 40%
+   Use: Modulation intensity
+   - 0%: No modulation
+   - 50%: Moderate movement
+   - 100%: Strong chorus-like movement
+
+6. TONE
+   Range: 0-100%
+   Default: 50%
+   Use: Brightness filter
+   - 0%: Dark (low-pass filtered)
+   - 50%: Neutral
+   - 100%: Bright (high-pass filtered)
+
+7. PREDLY
+   Range: 0-100%
+   Default: 20%
+   Use: Pre-delay time (0-100ms)
+   - 0%: No pre-delay
+   - 50%: 50ms pre-delay
+   - 100%: 100ms pre-delay
+
+8. DUCK
+   Range: 0-100%
+   Default: 30%
+   Use: Sidechain ducking amount
+   - 0%: No ducking
+   - 50%: Moderate ducking
+   - 100%: Strong ducking (reverb ducks when input is loud)
+
+9. FREEZE
+   Range: 0-1 (OFF/ON)
+   Default: 0 (OFF)
+   Use: Freeze/hold current reverb tail
+   - 0: OFF (normal decay)
+   - 1: ON (freeze current tail, near-infinite hold)
+

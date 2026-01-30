@@ -1,0 +1,115 @@
+═══════════════════════════════════════════════════════════════
+KAOSSLOOP - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: delfx (Delay Effect)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in DEL menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select mode
+- A knob (SHAPE): TIME (Delay Time)
+- B knob (ALT): FEEDBACK (Feedback)
+
+PARAMETER MENU:
+Hold DEL button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. TIME - Delay Time (Range: 0-1023, Default: 768)
+1. FEEDBACK - Feedback amount (Range: 0-1023, Default: 614)
+2. MIX - Dry/Wet Mix (Range: 0-1023, Default: 512)
+3. LAYER1 - Layer 1 Volume (Range: 0-1023, Default: 409)
+4. LAYER2 - Layer 2 Volume (Range: 0-1023, Default: 409)
+5. LAYER3 - Layer 3 Volume (Range: 0-1023, Default: 409)
+6. LAYER4 - Layer 4 Volume (Range: 0-1023, Default: 409)
+7. LENGTH - Loop Length (Range: 0-15, Default: 3)
+8. MODE - Recording/Playback Mode (Range: 0-7, Default: 0)
+9. QUANTIZE - Quantization (Range: 0-3, Default: 0)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+KAOSSILATOR LOOP RECORDER - Multi-layer live looper
+
+The power of Kaossilator looping in your hands!
+
+4-LAYER SYSTEM:
+Each layer has:
+- Independent buffer (3 seconds each @ 48kHz = 144k samples)
+- Record/Playback state machine
+- Speed control (0.5x, 1x, 2x, reverse)
+- Pitch shifter (±12 semitones)
+- Filter (LP with resonance)
+- Volume/Pan control
+- Loop start/end points
+
+Total buffer: 4 × 144k × 2 channels = 1.15 MB (uses SDRAM!)
+
+RECORDING MODES:
+0. OVERDUB - Add to existing loop
+1. REPLACE - Overwrite loop
+2. INSERT - Insert and shift
+3. MULTIPLY - Extend loop length
+
+PLAYBACK MODES:
+0. NORMAL - Straight playback
+1. REVERSE - Backwards
+2. HALF - Half speed (pitch down)
+3. DOUBLE - Double speed (pitch up)
+4. SLICE - Chop into 16 steps
+5. STUTTER - Gate/retrigger
+6. GRANULAR - Grain cloud
+7. FREEZE - Hold current position
+
+QUANTIZATION:
+0. FREE - No quantize
+1. 1/4 - Quarter note
+2. 1/8 - Eighth note
+3. 1/16 - Sixteenth note
+
+Loop length snaps to: 1, 2, 4, 8, 16 bars
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+MODE parameter (0-7): Recording/Playback modes
+LENGTH parameter (0-15): Loop length in bars
+QUANTIZE parameter (0-3): Quantization settings
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+LIVE LOOPING:
+- TIME: 75% (3 second loops)
+- FEEDBACK: 60% (moderate feedback)
+- MIX: 50% (balanced)
+- LENGTH: 3 (4 bars)
+- QUANTIZE: 2 (1/8 note)
+
+GRANULAR TEXTURE:
+- TIME: 50% (shorter loops)
+- FEEDBACK: 80% (high feedback)
+- MODE: 6 (Granular)
+- LAYER1-4: 40% each (all layers active)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: delfx
+Unit ID: 0x5U
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

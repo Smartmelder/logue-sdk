@@ -1,0 +1,21 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "1.1-0",
+        "dev_id": 0,
+        "prg_id": 1,
+        "version": "1.0-0",
+        "name": "GABBER",
+        "num_param": 6,
+        "params": [
+            ["Distortion", 0, 100, "%"],
+            ["Mode", 0, 7, ""],
+            ["Pitch Env", 0, 100, "%"],
+            ["Sub Level", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Filter", 0, 100, "%"]
+        ]
+    }
+}
+

@@ -1,0 +1,162 @@
+================================================================================
+ARP BEAST - RHYTHMIC GATE MODULATOR (MODFX)
+================================================================================
+
+FEATURES:
+- 16 rhythmic gate patterns
+- 1-4 octave range
+- Swing control
+- Gate time control
+- Accent system
+- Probability (note skipping)
+- 8 harmony modes
+- 8 tempo multipliers
+- Randomization
+- Dry/wet mix
+- SMOOTH ENVELOPE TRANSITIONS (no clicks!)
+
+NOTE: This is a MODFX (modulation effect) that works as a rhythmic gate/tremolo.
+It modulates the audio signal with rhythmic patterns. For a true arpeggiator
+that generates notes, use ARP KUT (OSC version).
+
+================================================================================
+HARDWARE CONTROLS
+================================================================================
+
+TYPE KNOB (Knob A):
+  → Controls PATTERN (0-15)
+  → Selects rhythmic gate pattern
+
+SHAPE KNOB (Knob B):
+  → Controls OCTAVES (1-4)
+  → Higher = more octaves in pattern
+
+================================================================================
+10 PARAMETERS
+================================================================================
+
+0. PATTERN (TYPE knob)
+   Range: 0-15
+   Default: 0 (UP)
+   Use: Rhythmic gate pattern selection
+   - 0: UP - Ascending pattern
+   - 1: DOWN - Descending pattern
+   - 2: UP-DOWN - Pendulum pattern
+   - 3: DOWN-UP - Inverted pendulum
+   - 4: RANDOM - Chaotic pattern
+   - 5: DRUNK - Random walk
+   - 6: OCTAVES - Octave jumps
+   - 7: SPIRAL - Expanding spiral
+   - 8: BOUNCE - Ping-pong with repeats
+   - 9: STUTTER - Repeated notes
+   - 10: SKIP - Skip notes
+   - 11: DOUBLE - Play each note twice
+   - 12: THIRDS - Interval jumps
+   - 13: FIFTHS - Power chord style
+   - 14: BROKEN - Broken chord style
+   - 15: EUCLIDEAN - Euclidean rhythm
+
+1. OCTAVES (SHAPE knob)
+   Range: 1-4
+   Default: 2
+   Use: Octave range for pattern
+   - 1: Single octave
+   - 2: Two octaves
+   - 3: Three octaves
+   - 4: Four octaves
+
+2. SWING
+   Range: 0-100%
+   Default: 50% (no swing)
+   Use: Swing/shuffle amount
+   - 0%: Straight timing
+   - 50%: No swing (straight)
+   - 100%: Maximum swing
+
+3. GATE
+   Range: 0-100%
+   Default: 75%
+   Use: Gate time (note length)
+   - 0%: Very short (staccato)
+   - 50%: Moderate gate
+   - 100%: Full gate (legato)
+
+4. ACCENT
+   Range: 0-100%
+   Default: 30%
+   Use: Accent amount on every 4th step
+   - 0%: No accent
+   - 50%: Moderate accent
+   - 100%: Maximum accent
+
+5. PROBABILITY
+   Range: 0-100%
+   Default: 100%
+   Use: Note skip probability
+   - 0%: No skipping (all notes)
+   - 50%: Moderate skipping
+   - 100%: Maximum skipping
+
+6. HARMONY
+   Range: 0-7
+   Default: 0 (NONE)
+   Use: Harmony mode (adds intervals)
+   - 0: NONE - Original notes
+   - 1: 3RD - Add major third
+   - 2: 5TH - Add perfect fifth
+   - 3: OCT - Add octave
+   - 4: TRIAD - Add 3rd + 5th
+   - 5: 7TH - Add major 7th
+   - 6: POWER - Add 5th + octave
+   - 7: CLUSTER - Add 2nd + 4th
+
+7. TEMPO MULT
+   Range: 0-7
+   Default: 3 (1×)
+   Use: Tempo multiplier
+   - 0: 1/4× (very slow)
+   - 1: 1/2× (slow)
+   - 2: 3/4× (slightly slow)
+   - 3: 1× (normal)
+   - 4: 1.5× (fast)
+   - 5: 2× (double speed)
+   - 6: 3× (triple speed)
+   - 7: 4× (quadruple speed)
+
+8. RANDOMIZE
+   Range: 0-100%
+   Default: 0%
+   Use: Pattern randomization amount
+   - 0%: No randomization
+   - 50%: Moderate randomization
+   - 100%: Maximum randomization
+
+9. MIX
+   Range: 0-100%
+   Default: 100% (full wet)
+   Use: Dry/wet balance
+   - 0%: Full dry (no effect)
+   - 50%: Balanced
+   - 100%: Full wet (full effect)
+
+================================================================================
+USAGE TIPS
+================================================================================
+
+- Use as a rhythmic gate/tremolo effect on any audio source
+- Works great with pads, leads, and bass sounds
+- Combine with internal NTS-1 arpeggiator for complex patterns
+- Lower MIX for subtle rhythmic modulation
+- Use EUCLIDEAN pattern for techno/EDM rhythms
+- STUTTER pattern creates cool glitch effects
+- RANDOM pattern adds unpredictability
+
+================================================================================
+TECHNICAL NOTES
+================================================================================
+
+- Smooth envelope transitions prevent clicks/ticks
+- Inactive steps fade to 10% instead of hard cut
+- Attack/release envelope for smooth gate transitions
+- Syncs to MIDI clock tempo
+- Works on stereo audio (2 in, 2 out)

@@ -1,0 +1,133 @@
+═══════════════════════════════════════════════════════════════
+JP8000 - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: osc (Oscillator)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in OSC menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select patch/preset
+- A knob (SHAPE): SUPERSAW (Supersaw Detune)
+- B knob (ALT): CUTOFF (Filter Cutoff)
+
+PARAMETER MENU:
+Hold OSC button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. SUPERSAW - Supersaw Detune amount (Range: 0-1023, Default: 819)
+1. CUTOFF - Filter Cutoff (Range: 0-1023, Default: 102)
+2. RESO - Resonance (Range: 0-1023, Default: 614)
+3. ENVMOD - Envelope Modulation Amount (Range: 0-1023, Default: 768)
+4. FEEDBACK - Feedback Oscillator amount (Range: 0-1023, Default: 512)
+5. LFO1 - LFO1 Rate (Range: 0-1023, Default: 307)
+6. LFO2 - LFO2 Rate (Range: 0-1023, Default: 409)
+7. XMOD - Cross Modulation amount (Range: 0-1023, Default: 256)
+8. WAVE - Waveform selection (Range: 0-15, Default: 0)
+9. MOTION - Motion Pattern selection (Range: 0-15, Default: 5)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+ROLAND JP-8000 COMPLETE SYNTHESIZER ENGINE
+
+OSCILLATORS:
+- SUPERSAW (7 detuned saws per voice)
+- Feedback Oscillator (self-modulation)
+- Square wave
+- Pulse width modulation
+- Cross-modulation (OSC1 → OSC2)
+- Sync
+
+FILTERS:
+- Multi-mode: LPF/HPF/BPF
+- Cascade HPF + LPF
+- 24dB/oct slope
+- Self-oscillating resonance
+- Envelope modulation
+- LFO modulation
+- Keyboard tracking
+
+ENVELOPES:
+- Filter envelope (ADSR)
+- Amp envelope (ADSR)
+- Velocity sensitivity
+- Envelope amount control
+
+LFOs:
+- LFO1: Triangle/Square/Sample&Hold
+- LFO2: Sine/Ramp
+- Rate control
+- Depth control
+- Multiple targets (Pitch/PWM/Filter/Amp)
+- Phase offset per voice (poly LFO)
+
+MODULATION:
+- Cross-modulation
+- Feedback modulation
+- Ring modulation
+- LFO → Filter
+- LFO → Pitch
+- Envelope → Filter
+
+POLYPHONY & UNISON:
+- 4-voice polyphony
+- Unison mode (stack voices)
+- Detune spread
+- Stereo unison
+
+MOTION CONTROL:
+- 16 motion patterns
+- Real-time parameter recording
+- Pattern playback
+- Tempo sync
+
+EFFECTS:
+- Built-in chorus (JP-8000 style)
+- Distortion
+- HPF character
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+WAVE parameter (0-15): Various waveform types
+MOTION parameter (0-15): 16 motion control patterns
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+CLASSIC SUPERSAW:
+- SUPERSAW: 80% (full detune)
+- CUTOFF: 10% (low filter)
+- RESO: 60% (moderate resonance)
+- ENVMOD: 75% (strong envelope)
+- LFO1: 30% (slow LFO)
+
+FEEDBACK LEAD:
+- FEEDBACK: 70% (strong feedback)
+- SUPERSAW: 50% (moderate detune)
+- CUTOFF: 40% (mid filter)
+- XMOD: 50% (cross modulation)
+- RESO: 70% (high resonance)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: osc
+Unit ID: 0x6U
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

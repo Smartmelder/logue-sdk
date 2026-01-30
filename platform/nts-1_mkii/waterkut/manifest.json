@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "delfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 16,
+        "version": "2.0-0",
+        "name": "WATERKUT",
+        "num_param": 11,
+        "params": [
+            ["Time", 0, 100, "%"],
+            ["Depth", 0, 100, "%"],
+            ["Mix", -100, 100, "%"],
+            ["Chaos", 0, 100, "%"],
+            ["Mod Intensity", 0, 100, "%"],
+            ["Mod Rate", 0, 100, "%"],
+            ["Tone", 0, 100, "%"],
+            ["Stereo Width", 0, 100, "%"],
+            ["Lines", 1, 10, ""],
+            ["Diffusion", 0, 100, "%"],
+            ["Freeze", 0, 1, ""]
+        ]
+    }
+}

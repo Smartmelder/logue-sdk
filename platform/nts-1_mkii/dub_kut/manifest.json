@@ -1,0 +1,26 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "delfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 5,
+        "version": "1.0-0",
+        "name": "DUB BEAST",
+        "num_param": 11,
+        "params": [
+            ["Mode", 0, 5, ""],
+            ["Time", 0, 15, ""],
+            ["Feedback", 0, 100, "%"],
+            ["Mix", -100, 100, ""],
+            ["Color", 0, 100, "%"],
+            ["Grit", 0, 100, "%"],
+            ["Stereo", 0, 100, "%"],
+            ["Ducking", 0, 100, "%"],
+            ["Modulation", 0, 100, "%"],
+            ["Pitch", -12, 12, "semi"],
+            ["Freeze", 0, 1, ""]
+        ]
+    }
+}
+

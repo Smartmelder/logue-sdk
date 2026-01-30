@@ -1,0 +1,124 @@
+═══════════════════════════════════════════════════════════════
+ETERNAL FLANGER - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: modfx (Modulation Effect)
+
+INSTALLATION:
+1. Upload via KORG KONTROL Editor
+2. Select in MOD menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select direction (UP, DOWN, BOTH)
+- A knob (SHAPE): RATE - LFO speed (0.1-10 Hz)
+- B knob (ALT): DEPTH - Flanger depth
+
+PARAMETER MENU:
+Hold MOD button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. RATE - LFO speed (Range: 0-100%, Default: 35%)
+1. DEPTH - Flanger depth/modulation amount (Range: 0-100%, Default: 60%)
+2. MIX - Dry/wet mix (Range: -100 to +100%, Default: 50% wet)
+3. FEEDBCK - Feedback amount, can be positive or negative (Range: 0-100%, Default: 50%)
+4. STEREO - Stereo width (Range: 0-100%, Default: 40%)
+5. DIRECTN - Sweep direction (UP, DOWN, BOTH)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+ETERNAL FLANGER creates an infinite barber-pole flanging effect
+using three parallel flangers with staggered LFO phases.
+
+BARBER-POLE ALGORITHM:
+- 3 parallel flangers with independent delay lines
+- Each flanger has a different LFO phase offset (0°, 120°, 240°)
+- Automatic crossfading between flangers
+- When one flanger reaches the end, it fades out while another fades in
+- Creates seamless infinite upward or downward sweep
+
+THROUGH-ZERO FLANGING:
+- LFO can modulate delay into negative range
+- Creates inverse comb filtering effects
+- Produces unique flanging/chorus/pitch modulation sounds
+
+DIRECTIONS:
+- UP: Infinite upward sweep
+- DOWN: Infinite downward sweep
+- BOTH: Alternates between up and down
+
+SPECIAL FEATURES:
+- Positive/negative feedback control
+- Stereo width control
+- Smooth crossfading (Shepard tone envelope)
+- Through-zero delay modulation
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES
+═══════════════════════════════════════════════════════════════
+
+CLASSIC FLANGER:
+- RATE: 40%
+- DEPTH: 70%
+- MIX: 60% wet
+- FEEDBCK: 50%
+- DIRECTN: UP
+
+CHORUS MODE:
+- RATE: 20%
+- DEPTH: 30%
+- MIX: 50% wet
+- FEEDBCK: 20%
+- DIRECTN: BOTH
+
+EXTREME SWEEP:
+- RATE: 80%
+- DEPTH: 100%
+- MIX: 80% wet
+- FEEDBCK: 70%
+- DIRECTN: UP
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+For classic flanging:
+- RATE: 35-50%
+- DEPTH: 60-80%
+- MIX: 50-70% wet
+- FEEDBCK: 40-60%
+
+For subtle movement:
+- RATE: 15-25%
+- DEPTH: 30-50%
+- MIX: 30-50% wet
+- FEEDBCK: 20-40%
+
+For extreme effects:
+- RATE: 70-100%
+- DEPTH: 80-100%
+- MIX: 70-90% wet
+- FEEDBCK: 60-80%
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: modfx
+Developer: Custom implementation based on Korg logue SDK
+
+Algorithm: 3 parallel flangers with through-zero modulation
+Delay lines: 50ms each (2400 samples @ 48kHz)
+LFO: Sine wave with interpolation
+Crossfading: Shepard tone envelope (Hann window)
+
+═══════════════════════════════════════════════════════════════
+

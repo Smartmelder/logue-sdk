@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "modfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 1,
+        "version": "1.0-0",
+        "name": "SEQFILT",
+        "num_param": 10,
+        "params": [
+            ["Range", 0, 100, "%"],
+            ["Resonance", 0, 100, "%"],
+            ["Speed", 0, 100, "%"],
+            ["Pattern", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Division", 0, 15, ""],
+            ["Preset", 0, 7, ""],
+            ["Sync", 0, 1, ""],
+            ["Direction", 0, 1, ""]
+        ]
+    }
+}
+

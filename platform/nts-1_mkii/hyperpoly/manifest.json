@@ -1,0 +1,24 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 3,
+        "version": "2.0-0",
+        "name": "HYPERMAX",
+        "num_param": 10,
+        "params": [
+            ["Chord Type", 0, 11, ""],
+            ["Detune", 0, 100, "%"],
+            ["Sub Mix", 0, 100, "%"],
+            ["Brightness", 0, 100, "%"],
+            ["Voice Count", 1, 4, ""],
+            ["Phase Offset", 0, 100, "%"],
+            ["PWM Depth", 0, 100, "%"],
+            ["Filter Cutoff", 0, 100, "%"],
+            ["Play", 0, 1, ""],
+            ["Step Edit", 0, 15, ""]
+        ]
+    }
+}

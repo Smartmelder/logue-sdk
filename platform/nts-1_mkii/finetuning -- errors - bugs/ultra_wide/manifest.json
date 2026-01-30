@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "revfx",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 7,
+        "version": "1.0-0",
+        "name": "ULTRAWIDE",
+        "num_param": 10,
+        "params": [
+            ["Time", 0, 100, "%"],
+            ["Feedback", 0, 100, "%"],
+            ["Width", 0, 100, "%"],
+            ["Shimmer", 0, 100, "%"],
+            ["Diffusion", 0, 100, "%"],
+            ["Modulation", 0, 100, "%"],
+            ["Mix", 0, 100, "%"],
+            ["Division", 0, 15, ""],
+            ["Mode", 0, 7, ""],
+            ["Freeze", 0, 1, ""]
+        ]
+    }
+}
+

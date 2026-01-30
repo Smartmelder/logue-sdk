@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 1,
+        "version": "1.0-0",
+        "name": "CHIKUTCAGO",
+        "num_param": 10,
+        "params": [
+            ["Sound", 0, 4, ""],
+            ["Bright", 0, 100, "%"],
+            ["Decay", 0, 100, "%"],
+            ["Detune", 0, 100, "%"],
+            ["Attack", 0, 100, "%"],
+            ["Warmth", 0, 100, "%"],
+            ["Body", 0, 100, "%"],
+            ["Release", 0, 100, "%"],
+            ["Velo", 0, 100, "%"],
+            ["Chorus", 0, 100, "%"]
+        ]
+    }
+}
+

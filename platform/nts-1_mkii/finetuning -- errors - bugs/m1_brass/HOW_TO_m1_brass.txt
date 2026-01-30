@@ -1,0 +1,105 @@
+═══════════════════════════════════════════════════════════════
+M1BRASS - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: osc (Oscillator)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in OSC menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select patch/preset
+- A knob (SHAPE): BRIGHT (Brightness)
+- B knob (ALT): RESON (Resonance)
+
+PARAMETER MENU:
+Hold OSC button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. BRIGHT - Brightness (Range: 0-1023, Default: 614)
+1. RESON - Resonance (Range: 0-1023, Default: 768)
+2. DETUNE - Detune amount (Range: 0-1023, Default: 512)
+3. ENSEMB - Ensemble amount (Range: 0-1023, Default: 307)
+4. VIBRAT - Vibrato amount (Range: 0-1023, Default: 409)
+5. BREATH - Breath controller (Range: 0-1023, Default: 256)
+6. ATTACK - Attack time (Range: 0-1023, Default: 512)
+7. RELEASE - Release time (Range: 0-1023, Default: 819)
+8. PATCH - Patch selection (Range: 0-7, Default: 0)
+9. VOICES - Voice count (Range: 0-3, Default: 1)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+M1 BRASS & STRINGS - Ultimate Recreation
+
+The legendary Korg M1 (1988) sound engine recreated!
+
+OSCILLATORS:
+- Dual oscillators (Saw + Pulse with PWM)
+- 3-band formant filter (authentic brass vowels!)
+- 8-voice ensemble (M1 "Lore" strings!)
+- Vibrato with delay & fade-in
+- Velocity layers (4-stage ADSR)
+- Breath controller (dynamic brightness)
+- Stereo chorus (ensemble shimmer)
+
+M1 SYNTHESIS METHOD (AI² Synthesis):
+- PCM waveforms (100+ samples)
+- Wavetable crossfading
+- Resonant filters
+- Digital effects
+- Velocity switching
+
+FORMANT FILTER BANK:
+Brass instruments have resonant frequencies (formants):
+- TRUMPET: F1: 600 Hz, F2: 1200 Hz, F3: 2800 Hz
+- TROMBONE: F1: 400 Hz, F2: 900 Hz, F3: 2200 Hz
+- SAX: F1: 500 Hz, F2: 1500 Hz, F3: 2500 Hz
+
+3-band peak filters with adjustable Q.
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+PATCH parameter (0-7): 8 M1 patches
+- Brass/Strings/Choir/Sax/Flute/Horn variations
+
+VOICES parameter (0-3): Ensemble voice count
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+CLASSIC M1 BRASS:
+- BRIGHT: 60% (moderate brightness)
+- RESON: 75% (strong resonance)
+- ENSEMB: 30% (subtle ensemble)
+- VIBRAT: 40% (moderate vibrato)
+- PATCH: 0 (Classic Brass)
+
+M1 LORE STRINGS:
+- BRIGHT: 50% (warm)
+- RESON: 70% (resonant)
+- ENSEMB: 80% (wide ensemble)
+- VIBRAT: 50% (smooth vibrato)
+- PATCH: 1 (Strings)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: osc
+Unit ID: 0xCU
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

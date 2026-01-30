@@ -1,0 +1,80 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 2,
+        "version": "1.0-0",
+        "name": "TECHNO BEAST",
+        "num_param": 11,
+        "params": [
+            [
+                "Mode",
+                0,
+                3,
+                ""
+            ],
+            [
+                "Detune",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Sub Mix",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Sync",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "PWM",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Filter",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Resonance",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Drive",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Accent",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Glide",
+                0,
+                100,
+                "%"
+            ],
+            [
+                "Phase Spread",
+                0,
+                100,
+                "%"
+            ]
+        ]
+    }
+}

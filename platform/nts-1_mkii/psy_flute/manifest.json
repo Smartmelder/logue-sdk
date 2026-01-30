@@ -1,0 +1,25 @@
+{
+    "header": {
+        "platform": "nts1mkii",
+        "module": "osc",
+        "api": "2.0-0",
+        "dev_id": 0,
+        "prg_id": 15,
+        "version": "1.0-0",
+        "name": "PSY FLUTE",
+        "num_param": 10,
+        "params": [
+            ["Flute Type", 0, 100, "%"],
+            ["Breath", 0, 100, "%"],
+            ["Brightness", 0, 100, "%"],
+            ["Vib Rate", 0, 100, "%"],
+            ["Vib Depth", 0, 100, "%"],
+            ["Motion", 0, 100, "%"],
+            ["Spread", 0, 100, "%"],
+            ["Attack", 0, 100, "%"],
+            ["Harm Tilt", 0, 100, "%"],
+            ["Space", 0, 100, "%"]
+        ]
+    }
+}
+

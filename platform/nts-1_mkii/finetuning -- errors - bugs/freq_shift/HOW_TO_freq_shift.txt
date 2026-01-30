@@ -1,0 +1,107 @@
+═══════════════════════════════════════════════════════════════
+FREQSHFT - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: modfx (Modulation Effect)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in MOD menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select mode
+- A knob (SHAPE): SHIFT (Frequency Shift)
+- B knob (ALT): MIX (Mix)
+
+PARAMETER MENU:
+Hold MOD button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. SHIFT - Frequency Shift amount (Range: 0-1023, Default: 512)
+1. MIX - Dry/Wet Mix (Range: 0-1023, Default: 614)
+2. FEEDBACK - Feedback amount (Range: 0-1023, Default: 307)
+3. SPREAD - Stereo Spread (Range: 0-1023, Default: 768)
+4. DETUNE - Detune amount (Range: 0-1023, Default: 409)
+5. DISTORT - Distortion amount (Range: 0-1023, Default: 256)
+6. RANGE - Frequency Range (Range: 0-3, Default: 0)
+7. DIRECTION - Shift Direction (Range: 0-1, Default: 0)
+8. MODE - Mode selection (Range: 0-3, Default: 0)
+9. STEREO - Stereo Mode (Range: 0-1, Default: 0)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+BODE FREQUENCY SHIFTER - Single-sideband ring modulation
+
+THEORY:
+Unlike pitch shifting, frequency shifting moves ALL frequencies
+by the same Hz amount, creating inharmonic spectra.
+
+ALGORITHM:
+1. Hilbert transform (90° phase shift)
+2. Ring modulation with quadrature oscillators
+3. Sum/difference for upper/lower sideband
+
+FEATURES:
+- Frequency shift: ±2000 Hz
+- 4 ranges: Subtle, Medium, Extreme, Ultra
+- Up/Down shift direction
+- Stereo spread (different shift L/R)
+- Feedback loop (regeneration)
+- 4 modes: Clean, Ring, Barber, Chaos
+- Distortion
+
+MODES:
+0. CLEAN - Pure frequency shift
+1. RING - Ring modulation character
+2. BARBER - Barber-pole phasing
+3. CHAOS - Feedback chaos
+
+RANGES:
+0. SUBTLE - 10-100 Hz
+1. MEDIUM - 50-500 Hz
+2. EXTREME - 100-2000 Hz
+3. ULTRA - 500-5000 Hz
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+MODE parameter (0-3): 4 operational modes (Clean, Ring, Barber, Chaos)
+RANGE parameter (0-3): 4 frequency ranges (Subtle, Medium, Extreme, Ultra)
+DIRECTION parameter (0-1): Up/Down shift direction
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+SUBTLE SHIMMER:
+- SHIFT: 50% (moderate shift)
+- MIX: 60% (wet mix)
+- RANGE: 0 (Subtle)
+- MODE: 0 (Clean)
+
+CHAOTIC FEEDBACK:
+- SHIFT: 70% (strong shift)
+- FEEDBACK: 60% (high feedback)
+- RANGE: 2 (Extreme)
+- MODE: 3 (Chaos)
+- DISTORT: 50% (distortion)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: modfx
+Unit ID: 0x3U
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

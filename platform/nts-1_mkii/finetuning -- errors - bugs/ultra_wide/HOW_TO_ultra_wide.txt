@@ -1,0 +1,122 @@
+═══════════════════════════════════════════════════════════════
+ULTRAWIDE - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════
+
+MODULE TYPE: revfx (Reverb Effect)
+
+INSTALLATION:
+Upload via KORG KONTROL Editor and select in REV menu on NTS-1 mkII
+
+═══════════════════════════════════════════════════════════════
+CONTROLS (NTS-1 mkII)
+═══════════════════════════════════════════════════════════════
+
+FRONT PANEL:
+- TYPE knob: Select mode
+- A knob (SHAPE): TIME (Delay Time)
+- B knob (ALT): FEEDBACK (Feedback)
+
+PARAMETER MENU:
+Hold REV button + turn TYPE knob to select parameter
+Adjust with A/B knobs
+
+PARAMETERS:
+0. TIME - Delay Time (Range: 0-1023, Default: 614)
+1. FEEDBACK - Feedback Amount (Range: 0-1023, Default: 768)
+2. WIDTH - Stereo Width (Range: 0-1023, Default: 819)
+3. SHIMMER - Shimmer Amount (Range: 0-1023, Default: 409)
+4. DIFFUSE - Diffusion Amount (Range: 0-1023, Default: 307)
+5. MODULATE - Modulation Amount (Range: 0-1023, Default: 256)
+6. MIX - Dry/Wet Mix (Range: 0-1023, Default: 512)
+7. DIVISION - Tempo Division (Range: 0-15, Default: 3)
+8. MODE - Special Mode (Range: 0-7, Default: 0)
+9. FREEZE - Freeze Mode (Range: 0-1, Default: 0)
+
+═══════════════════════════════════════════════════════════════
+FEATURES
+═══════════════════════════════════════════════════════════════
+
+ULTRA WIDE RANGE DELAY/LOOPER
+
+The ultimate delay/reverb hybrid for infinite possibilities!
+
+DELAY ENGINE:
+- 10ms to 125ms delays (dual stereo)
+- Multi-tap system (8 taps per side)
+- Dual stereo delays: 6,000 samples each (125ms @ 48kHz)
+- Total: 12k samples × 4 bytes = 48 KB (uses SDRAM!)
+
+SHIMMER REVERB:
+Pitch-shifted feedback loop:
+1. Delay output → Pitch shifter (+12 semitones)
+2. Mix with original
+3. Feed back to delay input
+4. Creates ascending "shimmer" effect
+
+DIFFUSION NETWORK:
+8×8 All-Pass Cascade:
+- 8 all-pass filters (varying delays)
+- Prime number delays for maximum density
+- Creates dense reverb tail
+
+STEREO WIDENING:
+Haas Effect + Mid/Side:
+- Mid/Side processing
+- Side channel enhancement (up to 200%)
+
+MODULATION:
+LFO Sources:
+1. LFO 1: Delay time (chorus/vibrato)
+2. LFO 2: Filter cutoff
+3. LFO 3: Pan position
+
+SPECIAL MODES:
+0. DIGITAL - Clean, pristine delays
+1. ANALOG - Tape delay simulation
+2. LOFI - Bitcrusher + downsample
+3. SHIMMER - Pitch-up reverb
+4. REVERSE - Backwards delay
+5. GRANULAR - Texture creation
+6. INFINITE - Self-sustaining feedback
+7. CHAOS - Randomized everything
+
+TEMPO SYNC:
+16 divisions: 1/64, 1/32T, 1/32, 1/16T, 1/16, 1/8T, 1/8, 1/4T, 1/4, 1/2T, 1/2, 3/4, 1/1, 2/1, 3/1, 4/1
+
+═══════════════════════════════════════════════════════════════
+PRESETS/PATCHES (if applicable)
+═══════════════════════════════════════════════════════════════
+
+MODE parameter (0-7): 8 special modes (Digital, Analog, LoFi, Shimmer, Reverse, Granular, Infinite, Chaos)
+DIVISION parameter (0-15): 16 tempo divisions
+FREEZE parameter (0-1): Freeze mode on/off
+
+═══════════════════════════════════════════════════════════════
+EXAMPLE SETTINGS
+═══════════════════════════════════════════════════════════════
+
+SHIMMER REVERB:
+- TIME: 60% (long delay)
+- FEEDBACK: 75% (high feedback)
+- SHIMMER: 50% (moderate shimmer)
+- WIDTH: 80% (wide stereo)
+- MODE: 3 (Shimmer)
+
+INFINITE DELAY:
+- TIME: 70% (long delay)
+- FEEDBACK: 95% (maximum feedback)
+- FREEZE: 1 (Freeze on)
+- MODE: 6 (Infinite)
+
+═══════════════════════════════════════════════════════════════
+TECHNICAL INFO
+═══════════════════════════════════════════════════════════════
+
+Platform: nts1mkii
+API: 2.0-0
+Module: revfx
+Unit ID: 0x7U
+Version: 1.0-0
+
+═══════════════════════════════════════════════════════════════
+

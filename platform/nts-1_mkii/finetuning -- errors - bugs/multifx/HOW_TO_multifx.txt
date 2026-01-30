@@ -1,0 +1,323 @@
+================================================================================
+MULTIFX - MULTI-MODE MODULATION EFFECT
+================================================================================
+
+8 EFFECTS IN ONE UNIT!
+
+================================================================================
+OVERVIEW
+================================================================================
+
+MULTIFX is a multi-mode modulation effect optimized for:
+- Techno production (chorus, flanger, phaser)
+- House music (tremolo, autopan)
+- Experimental (vibrato, ring mod)
+- Live performance (mode switching)
+
+FEATURES:
+- 8 effect modes (Chorus, Flanger, Phaser, Tremolo, Vibrato, Autopan, Ring Mod, Combo)
+- LFO modulation (rate, depth)
+- Feedback control
+- Tempo sync (6 divisions)
+- LFO shapes (4 types)
+- Stereo width control
+- Color/tone filter
+- Morphing between modes
+- 10 PARAMETERS - MAXIMUM CONTROL!
+
+Based on Korg logue SDK modfx template
+
+================================================================================
+HARDWARE CONTROLS
+================================================================================
+
+TYPE KNOB (Knob A when MOD held):
+  → Selects MODE (0-7)
+  → CHORUS / FLANGER / PHASER / etc.
+
+SHAPE KNOB (Knob B):
+  → Controls RATE (LFO speed)
+  → Higher = faster modulation
+
+SHIFT + B (MIX):
+  → Controls DRY/WET MIX
+  → 0% = full dry, 100% = full wet
+
+================================================================================
+8 EFFECT MODES
+================================================================================
+
+0: CHORUS - Classic chorus effect
+1: FLANGER - Flanging with feedback
+2: PHASER - Phase shifting
+3: TREMOLO - Amplitude modulation
+4: VIBRATO - Pitch modulation
+5: AUTOPAN - Stereo panning
+6: RING MOD - Ring modulation
+7: COMBO - Multiple effects combined
+
+================================================================================
+10 PARAMETERS
+================================================================================
+
+0. MODE (TYPE knob when MOD held)
+   Range: 0-7
+   Default: 0 (CHORUS)
+   Use: Select effect type
+   - 0: CHORUS
+   - 1: FLANGER
+   - 2: PHASER
+   - 3: TREMOLO
+   - 4: VIBRATO
+   - 5: AUTOPAN
+   - 6: RING MOD
+   - 7: COMBO
+
+1. RATE (SHAPE knob)
+   Range: 0-100%
+   Default: 40%
+   Use: LFO modulation speed
+   - 0%: Very slow (0.5 Hz)
+   - 50%: Moderate (4.25 Hz)
+   - 100%: Fast (8.0 Hz)
+
+2. DEPTH
+   Range: 0-100%
+   Default: 50%
+   Use: Modulation depth
+   - 0%: No modulation
+   - 50%: Moderate depth
+   - 100%: Maximum depth
+
+3. FEEDBACK
+   Range: 0-100%
+   Default: 10%
+   Use: Feedback amount (for flanger/phaser)
+   - 0%: No feedback
+   - 50%: Moderate feedback
+   - 100%: Maximum feedback
+
+4. MIX (SHIFT + B)
+   Range: 0-100%
+   Default: 50%
+   Use: Dry/wet balance
+   - 0%: Full dry
+   - 50%: Balanced
+   - 100%: Full wet
+
+5. SYNC
+   Range: 0-5
+   Default: 0 (Free)
+   Use: Tempo sync division
+   - 0: Free (manual rate)
+   - 1: 1/4
+   - 2: 1/8
+   - 3: 1/16
+   - 4: 1/32
+   - 5: 1/64
+
+6. SHAPE
+   Range: 0-3
+   Default: 0 (Sine)
+   Use: LFO waveform shape
+   - 0: SINE
+   - 1: TRIANGLE
+   - 2: SQUARE
+   - 3: SAW
+
+7. STEREO
+   Range: 0-100%
+   Default: 50%
+   Use: Stereo width
+   - 0%: Mono
+   - 50%: Normal stereo
+   - 100%: Ultra-wide
+
+8. COLOR
+   Range: 0-100%
+   Default: 50%
+   Use: Tone filter
+   - 0%: Dark
+   - 50%: Neutral
+   - 100%: Bright
+
+9. MORPH
+   Range: 0-100%
+   Default: 0% (Off)
+   Use: Morphing between modes
+   - 0%: No morphing
+   - 50%: Moderate morphing
+   - 100%: Maximum morphing
+
+================================================================================
+INSTANT PRESETS
+================================================================================
+
+🎛️ CLASSIC CHORUS
+   MODE:    0 (CHORUS)
+   RATE:    30%
+   DEPTH:   50%
+   FEEDBK:  5%
+   MIX:     60%
+   SYNC:    0 (Free)
+   SHAPE:   0 (Sine)
+   STEREO:  70%
+   COLOR:   50%
+   MORPH:   0%
+   → Classic chorus effect
+
+🎹 FLANGER SWEEP
+   MODE:    1 (FLANGER)
+   RATE:    40%
+   DEPTH:   70%
+   FEEDBK:  50%
+   MIX:     70%
+   SYNC:    2 (1/8)
+   SHAPE:   0 (Sine)
+   STEREO:  60%
+   COLOR:   50%
+   MORPH:   0%
+   → Flanger with tempo sync
+
+🎚️ PHASER SWEEP
+   MODE:    2 (PHASER)
+   RATE:    35%
+   DEPTH:   80%
+   FEEDBK:  40%
+   MIX:     80%
+   SYNC:    3 (1/16)
+   SHAPE:   0 (Sine)
+   STEREO:  50%
+   COLOR:   60%
+   MORPH:   0%
+   → Phaser with sync
+
+🔊 AUTOPAN
+   MODE:    5 (AUTOPAN)
+   RATE:    50%
+   DEPTH:   100%
+   FEEDBK:  0%
+   MIX:     100%
+   SYNC:    2 (1/8)
+   SHAPE:   0 (Sine)
+   STEREO:  100%
+   COLOR:   50%
+   MORPH:   0%
+   → Stereo autopan
+
+================================================================================
+TECHNICAL DETAILS
+================================================================================
+
+ALGORITHM:
+- 8 effect modes
+- LFO modulation (4 shapes)
+- Tempo sync (6 divisions)
+- Stereo processing
+- Color/tone filter
+- Feedback control
+- Dry/wet mix
+- Morphing between modes
+
+MEMORY:
+- Efficient processing
+- Optimized for NTS-1 mkII
+
+SIGNAL FLOW:
+Input → Mode → LFO → Depth → Feedback → Color →
+Stereo → Morph → Mix → Output
+
+================================================================================
+USAGE TIPS
+================================================================================
+
+1. CHORUS:
+   - MODE: 0 (CHORUS)
+   - RATE: 25-35%
+   - DEPTH: 40-60%
+   - FEEDBACK: 5-15%
+   - MIX: 50-70%
+   - STEREO: 60-80%
+
+2. FLANGER:
+   - MODE: 1 (FLANGER)
+   - RATE: 35-45%
+   - DEPTH: 60-80%
+   - FEEDBACK: 40-60%
+   - SYNC: 2-3 (1/8 or 1/16)
+   - MIX: 60-80%
+
+3. PHASER:
+   - MODE: 2 (PHASER)
+   - RATE: 30-40%
+   - DEPTH: 70-90%
+   - FEEDBACK: 30-50%
+   - SYNC: 3-4 (1/16 or 1/32)
+   - MIX: 70-90%
+
+4. AUTOPAN:
+   - MODE: 5 (AUTOPAN)
+   - RATE: 40-60%
+   - DEPTH: 100%
+   - STEREO: 100%
+   - SYNC: 2-3 (1/8 or 1/16)
+   - MIX: 100%
+
+5. MORPHING:
+   - Set MORPH: 50-100%
+   - Switch between MODES
+   - Creates smooth transitions
+   - Great for live performance
+
+================================================================================
+PARAMETER LIMITS
+================================================================================
+
+✅ 10 parameters (within NTS-1 mkII limit)
+✅ All parameters accessible via hardware + menu
+✅ MODE mapped to TYPE knob (when MOD held)
+✅ RATE mapped to SHAPE knob
+✅ MIX mapped to SHIFT + B
+✅ Tempo sync via MIDI clock
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+Q: No effect output
+A: Check MIX > 0%, ensure MODE is selected, check RATE > 0%
+
+Q: Effect too subtle
+A: Increase DEPTH (60-100%), increase MIX (70-100%)
+
+Q: Effect too aggressive
+A: Decrease DEPTH (30-50%), decrease FEEDBACK (10-30%)
+
+Q: Tempo sync not working
+A: Ensure MIDI clock is active, check SYNC parameter
+
+Q: Rate parameter has gaps (no sound at certain positions)
+A: This is fixed in latest version - RATE range is now 0.5-8 Hz (musical range)
+
+================================================================================
+VERSION INFO
+================================================================================
+
+Version: 1.0-0
+API: 2.0-0
+Platform: NTS-1 mkII
+Module: modfx (Modulation Effect)
+Parameters: 10
+
+================================================================================
+CREDITS
+================================================================================
+
+Based on Korg logue SDK
+Algorithm inspired by:
+- Classic modulation effects
+- Modern multi-FX units
+- Techno/house production techniques
+
+================================================================================
+
